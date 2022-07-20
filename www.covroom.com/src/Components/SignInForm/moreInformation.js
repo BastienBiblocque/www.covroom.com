@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
+function MoreInformation() {
+    let navigate = useNavigate();
 
-function MoreInformation(props) {
     return (
         <div className="card md:w-96 bg-base-100 shadow-xl my-8 mx-4 md:mx-0">
             <div className="card-body text-center">
@@ -8,15 +10,6 @@ function MoreInformation(props) {
                 <div className="border-b border-hr"/>
                 <div className="space-y-4">
                     <div className="grid md:grid-cols-2 md:gap-4">
-                        <div>
-                            <label className="label">
-                                <span className="label-text">Prénom</span>
-                            </label>
-                            <input
-                                type="file"
-                                placeholder="Prénom"
-                                className="input input-bordered input-primary w-full max-w-xs"/>
-                        </div>
                         <div>
                             <label className="label">
                                 <span className="label-text">Téléphone</span>
@@ -28,7 +21,7 @@ function MoreInformation(props) {
                         </div>
                         <div>
                             <label className="label">
-                                <span className="label-text">Nom</span>
+                                <span className="label-text">Genre</span>
                             </label>
                             <select className="select select-primary w-full max-w-xs">
                                 <option disabled selected>Genre</option>
@@ -39,18 +32,24 @@ function MoreInformation(props) {
                         </div>
                         <div>
                             <label className="label">
-                                <span className="label-text">Téléphone</span>
+                                <span className="label-text">Date de naissance</span>
                             </label>
                             <input
                                 type="date"
-                                placeholder="Téléphone"
+                                placeholder="birthday"
                                 className="input input-bordered input-primary w-full max-w-xs"/>
                         </div>
+                    </div>
+                    <div>
+                        <input type="file" id="pictures" className="hidden" />
+                        <label
+                            htmlFor="pictures"
+                            className="text-primary">Ajouter une photo</label>
                     </div>
                 </div>
                 <div className="card-actions justify-end my-4">
                     <button className="btn btn-primary" onClick={() => {
-                        props.setType("moreInformation");
+                        navigate("/");
                     }}>Je m&apos;inscris</button>
                 </div>
             </div>
