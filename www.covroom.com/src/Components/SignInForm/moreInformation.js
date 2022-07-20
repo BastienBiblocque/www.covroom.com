@@ -36,7 +36,6 @@ function MoreInformation() {
                             </label>
                             <input
                                 type="date"
-                                placeholder="birthday"
                                 className="input input-bordered input-primary w-full max-w-xs"/>
                         </div>
                     </div>
