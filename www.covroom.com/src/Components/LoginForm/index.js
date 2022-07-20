@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 function LoginForm() {
     return (
-        <div className="card w-96 bg-base-100 shadow-xl mt-8">
+        <div className="card md:w-96 bg-base-100 shadow-xl my-8 mx-4 md:mx-0">
             <div className="card-body text-center">
                 <p className="text-xl text-primary">Connexion</p>
                 <div className="border-b border-hr"/>

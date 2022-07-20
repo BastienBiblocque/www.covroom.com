@@ -2,7 +2,7 @@ import React from 'react';
 
 function SignInForm() {
     return (
-        <div className="card w-96 bg-base-100 shadow-xl mt-8">
+        <div className="card md:w-96 bg-base-100 shadow-xl my-8 mx-4 md:mx-0">
             <div className="card-body text-center">
                 <p className="text-xl text-primary">Rejoindre Covroom</p>
                 <div className="border-b border-hr"/>
@@ -16,7 +16,7 @@ function SignInForm() {
                             placeholder="Adresse Email"
                             className="input input-bordered input-primary w-full max-w-xs"/>
                     </div>
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid md:grid-cols-2 md:gap-4">
                         <div>
                             <label className="label">
                                 <span className="label-text">Prénom</span>
