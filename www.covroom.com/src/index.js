@@ -12,6 +12,7 @@ import Login from "./Pages/login";
 import SignIn from "./Pages/signin";
 import Car from "./Pages/car";
 import AddCar from "./Pages/car/addCar";
+import Faq from "./Pages/faq";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,6 +21,7 @@ root.render(
             <Route path="/" element={<Index />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signin" element={<SignIn />} />
+            <Route path="/faq" element={<Faq />} />
             <Route path="/car" element={<Car />} />
             <Route path="/car/add" element={<AddCar />} />
             {/*<Route index element={<Home />} />*/}
