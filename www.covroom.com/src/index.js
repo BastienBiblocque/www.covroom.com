@@ -13,6 +13,7 @@ import SignIn from "./Pages/signin";
 import Car from "./Pages/car";
 import AddCar from "./Pages/car/addCar";
 import Faq from "./Pages/faq";
+import UpdateCar from "./Pages/car/updateCar";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,6 +25,7 @@ root.render(
             <Route path="/faq" element={<Faq />} />
             <Route path="/car" element={<Car />} />
             <Route path="/car/add" element={<AddCar />} />
+            <Route path="/car/update" element={<UpdateCar />} />
             {/*<Route index element={<Home />} />*/}
             {/*<Route path="teams" element={<Teams />}>*/}
             {/*    <Route path=":teamId" element={<Team />} />*/}
