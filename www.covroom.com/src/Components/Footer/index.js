@@ -11,6 +11,7 @@ function Footer() {
             </div> 
             <div>
                 <span class="footer-title text-primary">Informations</span> 
+                <Link to="/faq">Foire aux questions</Link>
                 <Link to="/legal-notice">Mentions légales</Link>
                 <Link to="/about-us">A propos de nous</Link>
                 <p>Localisation : Metz </p>
