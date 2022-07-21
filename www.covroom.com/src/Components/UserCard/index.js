@@ -1,4 +1,4 @@
-import TravelInformations from "../Travelnformations/travelInformations";
+import TravelInformations from "../Travelnformations";
 import UserPicture from "./UserPicture/userPicture";
 
 
@@ -7,10 +7,10 @@ function UserCard() {
         <>
         <div class="card w-96 bg-neutral shadow-xl">
             <div class="card-body items-center text-center">
-            <TravelInformations/>
+                <TravelInformations/>
             </div>
             <div class="items-left text-left pb-5">
-            <UserPicture/>
+                <UserPicture/>
             </div>
         </div>
         </>
