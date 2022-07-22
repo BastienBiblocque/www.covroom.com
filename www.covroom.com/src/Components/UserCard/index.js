@@ -5,7 +5,7 @@ import UserPicture from "./UserPicture/userPicture";
 function UserCard() {
     return (
         <>
-        <div class="card w-96 bg-neutral shadow-xl">
+        <div class="card w-full bg-neutral shadow-xl">
             <div class="card-body items-center text-center">
                 <TravelInformations/>
             </div>

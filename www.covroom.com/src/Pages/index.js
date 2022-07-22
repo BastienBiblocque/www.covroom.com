@@ -20,13 +20,13 @@ function Index() {
       </div>
       <div class="body">
         <h1 class="text-primary font-bold text-4xl mt-20 mb-16 ml-48 underline underline-offset-8">Trajets pour vous :</h1>
-        <div class="travelForYou flex flex-row justify-evenly">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-4">
           <UserCard/>
           <UserCard/>
           <UserCard/>
         </div>
         <h2 class="text-primary font-bold text-4xl mt-20 mb-16 ml-48 underline underline-offset-8">Nouveaux trajets :</h2>
-        <div class="newTravel flex flex-row justify-evenly">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-4">
           <UserCard/>
           <UserCard/>
           <UserCard/>
