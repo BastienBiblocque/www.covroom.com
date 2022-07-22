@@ -1,7 +1,10 @@
 import { MdEventSeat } from 'react-icons/md';
 import { BsTrash } from 'react-icons/bs';
+import {useNavigate} from "react-router-dom";
 
 function CarCard() {
+    let navigate = useNavigate();
+
     return (
         <>
             <div className="card w-full shadow-xl">
@@ -14,7 +17,7 @@ function CarCard() {
                         </div>
                     </div>
                     <div>
-                        <button className="btn border-primary text-primary hover:bg-white">Modifier</button>
+                        <button className="btn border-primary text-primary hover:bg-white" onClick={()=>{navigate('/car/update')}}>Modifier</button>
                         <button className="btn border-primary text-primary hover:bg-white ml-4"><BsTrash /></button>
                     </div>
                 </div>

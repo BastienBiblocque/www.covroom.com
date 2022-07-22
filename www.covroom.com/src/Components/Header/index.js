@@ -20,7 +20,7 @@ function Header() {
                         <li><Link to="/search">
                             Rechercher
                         </Link></li>
-                        <li><Link to="/create">
+                        <li><Link to="/create-travel">
                             Publier un trajet
                         </Link></li>
                     </ul>
@@ -40,7 +40,7 @@ function Header() {
                         <li><Link to="/search" className="text-primary">
                             Rechercher
                         </Link></li>
-                        <li><Link to="/create" className="text-primary">
+                        <li><Link to="/create-travel" className="text-primary">
                             Publier un trajet
                         </Link></li>
                     </ul>
