@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "SharpSans";
+    src: local("SharpSans"),
+     url("./fonts/SharpSans/SharpSans-Medium.ttf");
+
+    }
+
+body{
+    font-family: "SharpSans";
+}

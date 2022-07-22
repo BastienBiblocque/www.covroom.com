@@ -4,6 +4,7 @@ import './index.css';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Index from './Pages';
 import reportWebVitals from './reportWebVitals';
+import './fonts/SharpSans/SharpSans-Medium.ttf';
 import {
     BrowserRouter,
     Routes,
@@ -14,6 +15,8 @@ import SignIn from "./Pages/signin";
 import Car from "./Pages/car";
 import AddCar from "./Pages/car/addCar";
 import Faq from "./Pages/faq";
+import SearchTravel from './Pages/searchTravel';
+
 import UpdateCar from "./Pages/car/updateCar";
 import CreateTravel from "./Pages/create-travel";
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -26,6 +29,7 @@ root.render(
             <Route path="/faq" element={<Faq />} />
             <Route path="/car" element={<Car />} />
             <Route path="/car/add" element={<AddCar />} />
+            <Route path="/search" element={<SearchTravel />} />
             <Route path="/car/update" element={<UpdateCar />} />
             <Route path="/create-travel" element={<CreateTravel />} />
             {/*<Route index element={<Home />} />*/}
