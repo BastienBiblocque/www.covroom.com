@@ -2,6 +2,7 @@ import '../App.css';
 import {Link} from "react-router-dom";
 import Footer from '../Components/Footer';
 import Header from "../Components/Header";
+
 import ElectricCarTop from '../img/svg/electricCarTop.svg';
 import CarBot from '../img/svg/carBot.svg';
 import SearchBar from '../Components/SearchBar';
