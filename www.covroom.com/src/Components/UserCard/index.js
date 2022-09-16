@@ -2,7 +2,7 @@ import TravelInformations from "../Travelnformations";
 import UserPicture from "./UserPicture/userPicture";
 
 
-function UserCard() {
+function CardTravel() {
     return (
         <>
         <div class="card w-full bg-neutral shadow-xl">
@@ -17,4 +17,4 @@ function UserCard() {
     );
 }
 
-export default UserCard;
+export default CardTravel;

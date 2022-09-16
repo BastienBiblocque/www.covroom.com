@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
-function MoreInformation() {
+function MoreInformation(props) {
     let navigate = useNavigate();
 
     return (
@@ -48,7 +48,8 @@ function MoreInformation() {
                 </div>
                 <div className="card-actions justify-end my-4">
                     <button className="btn btn-primary" onClick={() => {
-                        navigate("/");
+                        // navigate("/");
+                        props.postSign()
                     }}>Je m&apos;inscris</button>
                 </div>
             </div>
