@@ -22,8 +22,8 @@ function AddTravelFinish(props) {
                             <div className="text-left">
                                 <p>Depart : {props.departCity}</p>
                                 <p>Arrivée : {props.arriveCity}</p>
-                                <p>Date d&apos;arrivée : {props.startDay}</p>
-                                <p>Date de départ : {props.endDay}</p>
+                                <p>Date d&apos;arrivée : {props.startDay.toLocaleDateString()}</p>
+                                <p>Date de départ : {props.endDay.toLocaleDateString()}</p>
                                 <p>Voiture selectionnée : {props.selectedCar}</p>
                                 <p>Nombre de place : {props.numberOfSeat}</p>
                                 <p>Préference de trajet : {props.travelPreferences}</p>

@@ -16,6 +16,8 @@ function AddTravelCar(props) {
             props.setType('travelPreferences');
         } else {
             NotificationManager.error('Veuillez selectionner un véhicule et un nombre de places', 'Selectionner une voiture', 3000);
+            props.setType('travelPreferences');
+
         }
     }
 
@@ -31,8 +33,8 @@ function AddTravelCar(props) {
                             <div className="text-left">
                                 <p>Depart : {props.departCity}</p>
                                 <p>Arrivée : {props.arriveCity}</p>
-                                <p>Date d&apos;arrivée : {props.startDay}</p>
-                                <p>Date de départ : {props.endDay}</p>
+                                <p>Date d&apos;arrivée : {props.startDay.toLocaleDateString()}</p>
+                                <p>Date de départ : {props.endDay.toLocaleDateString()}</p>
                             </div>
                         </div>
                     </div>

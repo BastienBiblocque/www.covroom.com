@@ -26,7 +26,7 @@ function CreateTravel() {
 
     const [travelPreferences, setTravelPreferences] = useState(null);
 
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
     const createTravel = () => {
         //TODO post in api
