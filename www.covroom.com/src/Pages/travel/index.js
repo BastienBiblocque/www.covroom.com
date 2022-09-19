@@ -16,7 +16,7 @@ function Travel() {
 
     const [seat, setSeat] = useState([1,2,3]);
 
-    const [selectedSeat, setSelectedSeat] = useState(null);
+    const [selectedSeat, setSelectedSeat] = useState(1);
 
     const [isLoading, setIsLoading] = useState(false);
 
