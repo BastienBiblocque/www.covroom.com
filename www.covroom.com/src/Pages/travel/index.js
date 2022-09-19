@@ -7,11 +7,14 @@ import TravelInformations from "../../Components/Travelnformations";
 import CarInformation from "../../Components/CarInformation";
 import {ThreeDots} from "react-loader-spinner";
 import Loading from "../../Components/AddTravelForm/loading";
+import {useNavigate} from "react-router-dom";
 
 function Travel() {
+    let navigate = useNavigate();
 
     function goNext() {
         console.log('go next');
+        navigate('/bookingConfirmation/25');
     }
 
     const [seat, setSeat] = useState([1,2,3]);
