@@ -19,6 +19,7 @@ import SearchTravel from './Pages/searchTravel';
 
 import UpdateCar from "./Pages/car/updateCar";
 import CreateTravel from "./Pages/create-travel";
+import Travel from "./Pages/travel";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
@@ -32,6 +33,7 @@ root.render(
             <Route path="/search" element={<SearchTravel />} />
             <Route path="/car/update" element={<UpdateCar />} />
             <Route path="/create-travel" element={<CreateTravel />} />
+            <Route path="/travel/:id" element={<Travel />} />
             {/*<Route index element={<Home />} />*/}
             {/*<Route path="teams" element={<Teams />}>*/}
             {/*    <Route path=":teamId" element={<Team />} />*/}

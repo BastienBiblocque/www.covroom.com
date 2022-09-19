@@ -3,7 +3,7 @@ import logo from '../../img/logo.png'
 import {Link} from "react-router-dom";
 
 function Header() {
-    const [usersLog] = useState(false);
+    const [usersLog] = useState(true);
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
