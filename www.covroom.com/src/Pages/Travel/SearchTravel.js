@@ -1,9 +1,7 @@
-import '../../App.css';
-import Footer from '../../components/Footer/footer';
-import Header from "../../components/Header/header";
-import SearchBar from '../../components/SearchBar/searchBar';
-import CardTravel from "../../components/UserCard/userCard"
-
+import Header from '../../components/body/Header/Header';
+import Footer from '../../components/body/Footer/Footer';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import CardTravel from '../../components/travel/Travelnformations/TravelInformations';
 
 function SearchTravel() {
     return (

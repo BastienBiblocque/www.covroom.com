@@ -1,7 +1,9 @@
-import '../App.css';
-import Footer from '../../components/Footer/footer';
-import Header from "../../components/Header/header";
-import {useState} from "react";
+import React, {useState} from 'react';
+import '../../index';
+import Header from '../../components/body/Header/Header';
+import Footer from '../../components/body/Footer/Footer';
+
+
 
 function Faq() {
 

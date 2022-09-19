@@ -1,10 +1,9 @@
-import '../../App.css';
-import Footer from '../../components/Footer/footer';
-import Header from "../../components/Header/header";
-import CarCard from "../../components/CarCard/carCard";
 import {useNavigate} from "react-router-dom";
+import Header from '../../components/body/Header/Header';
+import Footer from '../../components/body/Footer/Footer';
+import CarCard from '../../components/car/CarCard/CarCard';
 
-function listCar() {
+function ListCar() {
     let navigate = useNavigate();
 
     return (
@@ -32,4 +31,4 @@ function listCar() {
     );
 }
 
-export default listCar;
+export default ListCar;

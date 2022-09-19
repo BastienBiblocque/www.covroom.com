@@ -1,13 +1,13 @@
-import '../App.css';
-import {Link} from "react-router-dom";
-import Footer from '../components/Footer/footer';
-import Header from "../components/Header/header";
 import { BsMusicNote } from 'react-icons/bs';
+import {Link} from "react-router-dom";
 
-import ElectricCarTop from '../img/svg/electricCarTop.svg';
-import CarBot from '../img/svg/carBot.svg';
-import SearchBar from '../components/SearchBar/searchBar';
-import UserCard from '../components/UserCard/userCard';
+import Header from '../components/body/Header/Header';
+import Footer from '../components/body/Footer/Footer'
+import ElectricCarTop from '../img/Svg/electricCarTop.svg';
+import CarBot from '../img/Svg/carBot.svg';
+import SearchBar from '../components/SearchBar/SearchBar';
+import UserCard from '../components/user/UserCard/UserCard';
+
 
 function Home() {
   return (

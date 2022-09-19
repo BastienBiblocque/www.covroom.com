@@ -1,6 +1,6 @@
-import Header from "../../components/Header/header";
-import Footer from "../../components/Footer/footer";
-import UpdateCarForm from "../../components/UpdateCarForm/updateCarForm";
+import Header from '../../components/body/Header/Header';
+import Footer from '../../components/body/Footer/Footer';
+import UpdateCarForm from '../../components/form/formCar/UpdateCarForm/UpdateCarForm';
 
 
 function UpdateCar() {

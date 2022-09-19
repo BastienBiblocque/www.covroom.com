@@ -1,12 +1,14 @@
 import React, {useState} from "react";
-import AddTravelIndex from "../Components/AddTravelForm";
-import Header from "../Components/Header";
-import Footer from "../Components/Footer";
-import AddTravelWhere from "../Components/AddTravelForm/when";
-import AddTravelCar from "../Components/AddTravelForm/car";
-import AddTravelPrefrences from "../Components/AddTravelForm/travelPreferences";
-import AddTravelFinish from "../Components/AddTravelForm/finish";
-import AddTravelLoading from "../Components/AddTravelForm/loading";
+import Header from '../../components/body/Header/Header';
+import Footer from '../../components/body/Footer/Footer';
+
+import AddTravelLoading from '../../components/Loading/DotsLoading';
+import AddTravelWhere from '../../components/form/formTravel/AddTravelForm/addTravelWhen';
+import AddTravelCar from '../../components/form/formTravel/AddTravelForm/addTravelCar';
+import AddTravelPreferences from '../../components/form/formTravel/AddTravelForm/addTravelPreferences';
+import AddTravelFinish from '../../components/form/formTravel/AddTravelForm/addTravelFinish';
+import AddTravelIndex from '../../components/form/formTravel/AddTravelForm/addTravelForm';
+
 
 function CreateTravel() {
     const [type, setType] = useState("where");
@@ -44,7 +46,7 @@ function CreateTravel() {
         } else if (type === 'car') {
             return(<AddTravelCar setType={setType} departCity={departCity} arriveCity={arriveCity} startDay={startDay} endDay={endDay} setSelectedCar={setSelectedCar} setNumberOfSeat={setNumberOfSeat} />)
         } else if (type === 'travelPreferences') {
-            return(<AddTravelPrefrences setType={setType} departCity={departCity} arriveCity={arriveCity} startDay={startDay} endDay={endDay} selectedCar={selectedCar} numberOfSeat={numberOfSeat} setTravelPreferenceprops={setTravelPreferences} createTravel={createTravel} />)
+            return(<AddTravelPreferences setType={setType} departCity={departCity} arriveCity={arriveCity} startDay={startDay} endDay={endDay} selectedCar={selectedCar} numberOfSeat={numberOfSeat} setTravelPreferenceprops={setTravelPreferences} createTravel={createTravel} />)
         } else if (type === 'finish') {
             return(<AddTravelFinish setType={setType} departCity={departCity} arriveCity={arriveCity} startDay={startDay} endDay={endDay} selectedCar={selectedCar} numberOfSeat={numberOfSeat} travelPreferences={travelPreferences} />)
         }

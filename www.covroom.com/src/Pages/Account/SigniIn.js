@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
-import '../App.css';
-import Header from "../../components/Header/header";
-import SignInForm from "../../components/SignInForm/signInForm";
-import Footer from "../../components/Footer/footer";
-import MoreInformation from "../../components/SignInForm/signInMoreInformations";
+import Header from '../../components/body/Header/Header';
+import Footer from '../../components/body/Footer/Footer';
+import SignInForm from '../../components/account/SignInForm/SignInForm';
+import MoreInformation from '../../components/account/SignInForm/SignInMoreInformations';
 
 
 

@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import mns from '../../img/mns.png'
+import mns from '../../../img/Png/mns.png';
 
 function Footer() {
     return (

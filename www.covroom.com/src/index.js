@@ -1,28 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Index from './pages/Home';
 import reportWebVitals from './reportWebVitals';
-import './fonts/SharpSans/SharpSans-Medium.ttf';
 import {
     BrowserRouter,
     Routes,
     Route,
 } from "react-router-dom";
-import Login from "./pages/login";
-import SignIn from "./pages/Account/SigniIn";
-import Car from "./pages/Car/ListCar";
-import AddCar from "./pages/Car/AddCar";
-import Faq from "./pages/Annex/Faq";
+
+import './fonts/SharpSans/SharpSans-Medium.ttf';
+import './index.css';
+
+import Home from './pages/Home';
+import Login from './pages/Account/Login';
+import SignIn from './pages/Account/SigniIn';
+import Faq from './pages/Annex/Faq';
+import Car from './pages/Car/ListCar';
+import AddCar from './pages/Car/AddCar';
+import UpdateCar from './pages/Car/UpdateCar';
 import SearchTravel from './pages/Travel/SearchTravel';
-import UpdateCar from "./pages/Car/UpdateCar";
-import CreateTravel from "./pages/create-travel";
+import CreateTravel from './pages/Travel/CreateTravel'
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
         <Routes>
-            <Route path="/" element={<Index />} />
+            <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/faq" element={<Faq />} />

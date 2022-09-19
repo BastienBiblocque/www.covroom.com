@@ -1,5 +1,5 @@
+import UserPicture from '../UserPicture/UserPicture';
 import TravelInformations from "../../travel/Travelnformations/TravelInformations";
-import UserPicture from "./UserPicture/userPicture";
 
 
 function UserCard() {

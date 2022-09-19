@@ -1,9 +1,8 @@
-import '../../App.css';
-import Footer from '../../components/Footer/footer';
-import Header from "../../components/Header/header";
-import AddCarForm from "../../components/AddCarForm/addCarForm";
 import React, {useState} from "react";
-import MoreInformation from "../../components/AddCarForm/moreInformationCar";
+import Header from '../../components/body/Header/Header';
+import Footer from '../../components/body/Footer/Footer';
+import AddCarForm from '../../components/form/formCar/AddCarForm/AddCarForm';
+import MoreInformation from '../../components/form/formCar/AddCarForm/MoreInformationCar';
 
 
 function AddCar() {

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import logo from '../../img/logo.png'
 import {Link} from "react-router-dom";
+import logo from '../../../img/Png/logo.png';
 
 function Header() {
     const [usersLog] = useState(true);

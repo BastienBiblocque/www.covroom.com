@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 
-function signInMoreInformations() {
+function SignInMoreInformations() {
     let navigate = useNavigate();
 
     return (
@@ -57,4 +57,4 @@ function signInMoreInformations() {
     );
 }
 
-export default signInMoreInformations;
+export default SignInMoreInformations;
