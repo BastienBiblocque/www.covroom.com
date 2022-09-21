@@ -1,6 +1,6 @@
 
 
-function TravelInformations() {
+function TravelInformations(props) {
     return (
        <>
         <div className="travel flex">
@@ -12,12 +12,10 @@ function TravelInformations() {
             </div>
             <div className="way border h-18 w-0 border-black ml-5 mr-5"/>
             <div className="city">
-                <div className="startCity font-medium">Metz</div>
+                <div className="startCity font-medium">{props.startCity}</div>
                 <p className="text-xs">Vers</p>
-                <div className="endCity font-medium">Thionville</div>
-
+                <div className="endCity font-medium">{props.endCity}</div>
             </div>
-
         </div>
        </>
     );

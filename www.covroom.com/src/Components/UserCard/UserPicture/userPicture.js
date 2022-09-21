@@ -1,6 +1,6 @@
 import {AiFillStar} from "react-icons/ai";
 
-function UserPicture() {
+function UserPicture(props) {
     return (
         <>
         <div class="flex grid-cols-3 gap-4">
@@ -10,8 +10,8 @@ function UserPicture() {
                 </div>
             </div>
             <div class="userName pt-3">
-                <span class="firstname font-semibold">Jean </span>
-                <span class="lastname font-semibold">JACKY</span>     
+                <span class="firstname font-semibold">{props.firstname} </span>
+                <span class="lastname font-semibold">{props.name}</span>
                 <div class="userAverage">
                     <span class="flex gap-1"><AiFillStar/>0</span> 
                 </div>               
