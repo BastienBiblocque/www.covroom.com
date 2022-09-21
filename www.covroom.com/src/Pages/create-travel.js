@@ -7,6 +7,7 @@ import AddTravelCar from "../Components/AddTravelForm/car";
 import AddTravelPrefrences from "../Components/AddTravelForm/travelPreferences";
 import AddTravelFinish from "../Components/AddTravelForm/finish";
 import AddTravelLoading from "../Components/AddTravelForm/loading";
+import axios from "axios";
 
 function CreateTravel() {
     const [type, setType] = useState("where");
@@ -29,8 +30,22 @@ function CreateTravel() {
     const [isLoading, setIsLoading] = useState(false);
 
     const createTravel = () => {
-        //TODO post in api
         console.log('create');
+        axios.post(`http://127.0.0.1:8000/travel/new`,{
+                idCar: 1,
+                idUser: 1,
+                seatAtTheBegining: 3,
+                startLatitude: departLat,
+                startLongitude: departLong,
+                endLatitude: arriveLat,
+                endLongitude: arriveLong,
+                startCity: departCity,
+                endCity: arriveCity,
+
+            })
+            .then(res => {
+                console.log(res)
+            })
     }
 
 
