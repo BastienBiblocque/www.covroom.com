@@ -8,8 +8,23 @@ import ElectricCarTop from '../img/svg/electricCarTop.svg';
 import CarBot from '../img/svg/carBot.svg';
 import SearchBar from '../Components/SearchBar';
 import UserCard from '../Components/UserCard';
+import axios from "axios";
+import {useEffect} from "react";
 
 function Index() {
+
+  const getData = () =>{
+    axios.get(`http://127.0.0.1:8000/user`)
+        .then(res => {
+          console.log(res)
+        })
+  }
+
+  useEffect(()=>{
+    getData();
+  },[])
+
+
   return (
     <>
       <Header />

@@ -1,16 +1,19 @@
 import TravelInformations from "../Travelnformations";
 import UserPicture from "./UserPicture/userPicture";
+import {useNavigate} from "react-router-dom";
 
 
-function CardTravel() {
+function CardTravel(props) {
+    let navigate = useNavigate();
+
     return (
         <>
-        <div class="card w-full bg-neutral shadow-xl">
+        <div class="card w-full bg-neutral shadow-xl cursor-pointer" onClick={()=>navigate('/travel/25')}>
             <div class="card-body items-center text-center">
-                <TravelInformations/>
+                <TravelInformations startCity={props.travel.start_city} endCity={props.travel.end_city}/>
             </div>
             <div class="items-left text-left pb-5">
-                <UserPicture/>
+                <UserPicture name={props.travel.user.name} firstname={props.travel.user.firstname}/>
             </div>
         </div>
         </>

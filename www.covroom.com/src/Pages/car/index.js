@@ -3,9 +3,26 @@ import Footer from '../../Components/Footer';
 import Header from "../../Components/Header";
 import CarCard from "../../Components/CarCard";
 import {useNavigate} from "react-router-dom";
+import axios from "axios";
+import {useState, useEffect} from "react";
+import CardTravel from "../../Components/UserCard";
 
 function Car() {
     let navigate = useNavigate();
+
+    const [cars,setCars] =useState(null);
+
+    const getData = () =>{
+        axios.get(`http://127.0.0.1:8000/car/user/${1}`)
+            .then(res => {
+                console.log(res.data);
+                setCars(res.data);
+            })
+    }
+
+    useEffect(()=>{
+        getData();
+    },[])
 
     return (
         <>
@@ -22,7 +39,9 @@ function Car() {
                         <h1 className="text-primary text-xl">Vos Voitures</h1>
                         <button className="btn btn-primary mt-4 justify-self-end" onClick={()=>{navigate('/car/add')}}>Ajouter</button>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                            <CarCard />
+                            {cars ? cars.map((car)=>
+                                (<CarCard car={car}/>)
+                            ) :null}
                         </div>
                     </div>
                 </div>

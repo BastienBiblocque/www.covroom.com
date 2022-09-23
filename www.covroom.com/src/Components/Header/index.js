@@ -3,7 +3,7 @@ import logo from '../../img/logo.png'
 import {Link} from "react-router-dom";
 
 function Header() {
-    const [usersLog] = useState(false);
+    const [usersLog] = useState(true);
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -60,7 +60,7 @@ function Header() {
                                 <li><Link to="/profil">Mon profil</Link></li>
                                 <li><Link to="/profil">Mes alertes</Link></li>
                                 <li><Link to="/search">Mes trajets</Link></li>
-                                <li><Link to="/search">Mes reservations</Link></li>
+                                <li><Link to="/booking">Mes reservations</Link></li>
                                 <li><Link to="/car">Mes voitures</Link></li>
                                 <li><Link to="/search">Mes messages</Link></li>
                                 <li><Link to="/search">Mes favoris</Link></li>
