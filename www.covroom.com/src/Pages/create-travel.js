@@ -30,7 +30,6 @@ function CreateTravel() {
     const [isLoading, setIsLoading] = useState(false);
 
     const createTravel = () => {
-        console.log('create');
         axios.post(`http://127.0.0.1:8000/travel/new`,{
                 idCar: 1,
                 idUser: 1,
