@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 function SearchBar() {
     return (
        <>
-        <div class="bg-[#ffffff] w-7/12 lg:w-9/12 shadow-xl rounded-full border border-primary pl-5 pt-2 pb-2">
+        <div class="mx-auto bg-[#ffffff] w-7/12 lg:w-9/12 shadow-xl rounded-full border border-primary pl-5 pt-2 pb-2">
         <div class="flex flex-start justify-between">
             <div class="beginIn flex flex-col">
                 <p class="font-semibold">Lieu de départ</p>
