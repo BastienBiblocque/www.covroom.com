@@ -1,27 +1,57 @@
 import '../../App.css';
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import UserPicture from "../../Components/UserCard/UserPicture/userPicture";
 import TravelInformations from "../../Components/Travelnformations";
 import CarInformation from "../../Components/CarInformation";
 import {ThreeDots} from "react-loader-spinner";
 import Loading from "../../Components/AddTravelForm/loading";
 import {useNavigate} from "react-router-dom";
+import axios from "axios";
+import {useParams} from "react-router";
 
 function Travel() {
     let navigate = useNavigate();
 
     function goNext() {
-        console.log('go next');
-        navigate('/bookingConfirmation/25');
+        axios.post(`http://127.0.0.1:8000/booking/new`,{
+            idTravel:id,
+            idUser:1,
+            seat:selectedSeat,
+        })
+            .then(res => {
+                navigate(`/bookingConfirmation/${res.data.id}`);
+            })
     }
 
-    const [seat, setSeat] = useState([1,2,3]);
+    const [travel, setTravel] =useState(null);
+
+    let { id } = useParams();
+
+    const getTravel = () =>{
+        axios.get(`http://127.0.0.1:8000/travel/retrieve/${id}`)
+            .then(res => {
+                setTravel(res.data);
+                const tmp = [];
+                for (let i=0; i<res.data.seat.available; i++){
+                    tmp.push(i+1);
+                    console.log(i)
+                }
+                setSeat(tmp);
+                setIsLoading(false);
+            })
+    }
+
+    useEffect(()=>{
+        getTravel();
+    },[])
+
+    const [seat, setSeat] = useState([]);
 
     const [selectedSeat, setSelectedSeat] = useState(1);
 
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     return (
         <>
@@ -42,16 +72,16 @@ function Travel() {
                             </div>) :
                             <div className="card md:w-96 bg-base-100 shadow-xl my-8 mx-4 md:mx-0">
                                 <div className="card-body text-center">
-                                    <p className="text-xl text-primary">Metz - Thionville</p>
+                                    <p className="text-xl text-primary">{travel.start_city} - {travel.end_city}</p>
                                     <div className="border-b border-hr"/>
                                     <div className="items-left text-left py-5">
-                                        <TravelInformations/>
+                                        <TravelInformations startCity={travel.start_city} endCity={travel.end_city}/>
                                     </div>
                                     <div className="items-left text-left py-5">
-                                        <CarInformation/>
+                                        <CarInformation car={travel.car} seat={travel.seat} />
                                     </div>
                                     <div className="items-left text-left py-5">
-                                        <UserPicture/>
+                                        <UserPicture name={travel.user.name} firstname={travel.user.firstname}/>
                                     </div>
                                     <div className="grid md:grid-cols-2 md:gap-4">
                                         <div>
