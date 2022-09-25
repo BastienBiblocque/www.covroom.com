@@ -1,16 +1,31 @@
 import '../App.css';
 import Footer from '../Components/Footer';
 import Header from "../Components/Header";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Loading from "../Components/AddTravelForm/loading";
 import TravelInformations from "../Components/Travelnformations";
 import CarInformation from "../Components/CarInformation";
 import {useNavigate} from "react-router-dom";
+import axios from "axios";
 
 function Booking() {
     let navigate = useNavigate();
 
     const [isLoading, setIsLoading] = useState(false);
+
+    const [bookings, setBookings] = useState(null);
+
+    const getBooking = () =>{
+        axios.get(`http://127.0.0.1:8000/booking/retrieve/user/${1}`)
+            .then(res => {
+                setBookings(res.data);
+                setIsLoading(false);
+            })
+    }
+
+    useEffect(()=>{
+        getBooking();
+    },[])
 
     return (
         <>
