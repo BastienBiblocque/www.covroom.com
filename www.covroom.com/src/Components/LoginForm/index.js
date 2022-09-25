@@ -14,6 +14,7 @@ function LoginForm() {
                 password: password,
             }).then((res) => {
                 localStorage.setItem('userId', res.data.id);
+                localStorage.setItem('userName', res.data.name + ' - ' + res.data.firstName);
                 navigate('/');
             });
         }

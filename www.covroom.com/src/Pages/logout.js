@@ -9,6 +9,7 @@ function Logout() {
         const userId = localStorage.getItem('userId');
         if (userId){
             localStorage.removeItem('userId');
+            localStorage.removeItem('userName');
             navigate('/');
 
         } else {

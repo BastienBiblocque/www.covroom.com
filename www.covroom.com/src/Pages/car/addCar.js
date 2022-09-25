@@ -5,6 +5,7 @@ import AddCarForm from "../../Components/AddCarForm";
 import React, {useEffect, useState} from "react";
 import MoreInformation from "../../Components/AddCarForm/moreInformation";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 
 function AddCar() {
@@ -17,7 +18,7 @@ function AddCar() {
     const [color, setColor] = useState(null);
     const [seat, setSeat] = useState(null);
 
-    console.log(color)
+    let navigate = useNavigate();
 
     const createCar = () => {
         const userId = localStorage.getItem('userId');
@@ -29,10 +30,9 @@ function AddCar() {
             color: color,
             seat: seat,
             idUser: userId,
-            //a modifier
         })
         .then(res => {
-            console.log(res)
+            navigate('/car');
         })
     }
     useEffect(()=>{
