@@ -54,15 +54,15 @@ function Index() {
       <div class="body">
         <h1 class="text-primary font-bold text-4xl mt-20 mb-16 ml-48 underline underline-offset-8">Trajets pour vous :</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-4">
-          <UserCard/>
-          <UserCard/>
-          <UserCard/>
+          {/*<UserCard/>*/}
+          {/*<UserCard/>*/}
+          {/*<UserCard/>*/}
         </div>
         <h2 class="text-primary font-bold text-4xl mt-20 mb-16 ml-48 underline underline-offset-8">Nouveaux trajets :</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-4">
-          <UserCard/>
-          <UserCard/>
-          <UserCard/>
+          {/*<UserCard/>*/}
+          {/*<UserCard/>*/}
+          {/*<UserCard/>*/}
         </div>
         <div class="networkDriver flex m-20">
           <div class="card w-full bg-neutral text-neutral-content shadow-xl flex flex-row p-5">

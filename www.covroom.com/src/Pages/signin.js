@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../App.css';
 import Header from "../Components/Header";
 import SignInForm from "../Components/SignInForm";
@@ -20,6 +20,13 @@ function SignIn() {
     const [phone, setPhone] = useState(null);
     const [gender, setGender] = useState(null);
     const [birthday, setBirthday] = useState(null);
+
+    useEffect(()=>{
+        const userId = localStorage.getItem('userId');
+        if (userId){
+            navigate('/');
+        }
+    },[])
 
     const SignType = () => {
         if (type === 'sign') {

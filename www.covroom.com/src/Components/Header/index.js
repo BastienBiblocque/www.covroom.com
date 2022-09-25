@@ -1,9 +1,18 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import logo from '../../img/logo.png'
 import {Link} from "react-router-dom";
 
 function Header() {
-    const [usersLog] = useState(false);
+    const [usersLog, setUserLog] = useState(false);
+
+    useEffect(()=>{
+        const userId = localStorage.getItem('userId');
+        if (userId){
+            setUserLog(true);
+        } else {
+            setUserLog(false);
+        }
+    },[])
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -64,7 +73,7 @@ function Header() {
                                 <li><Link to="/car">Mes voitures</Link></li>
                                 <li><Link to="/search">Mes messages</Link></li>
                                 {/*<li><Link to="/search">Mes favoris</Link></li>*/}
-                                <li><Link to="/search">Déconnexion</Link></li>
+                                <li><Link to="/logout">Déconnexion</Link></li>
                             </> :
                             <>
                                 <li><Link to="/login">Connexion</Link></li>

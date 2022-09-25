@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 
@@ -9,16 +9,23 @@ function LoginForm() {
     const [password, setPassword] = useState(null);
     async function login() {
         if (email && password) {
-            console.log(email);
-            console.log(password);
             await axios.post('http://127.0.0.1:8000/user/login', {
                 email: email,
                 password: password,
-            }).then(() => {
+            }).then((res) => {
+                localStorage.setItem('userId', res.data.id);
                 navigate('/');
             });
         }
     }
+
+    useEffect(()=>{
+        const userId = localStorage.getItem('userId');
+        if (userId){
+            navigate('/');
+        }
+    },[])
+
     return (
         <div className="card md:w-96 bg-base-100 shadow-xl my-8 mx-4 md:mx-0">
             <div className="card-body text-center">
