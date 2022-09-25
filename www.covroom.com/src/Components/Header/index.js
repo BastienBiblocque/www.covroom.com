@@ -63,7 +63,7 @@ function Header() {
                                 <li><Link to="/booking">Mes reservations</Link></li>
                                 <li><Link to="/car">Mes voitures</Link></li>
                                 <li><Link to="/search">Mes messages</Link></li>
-                                <li><Link to="/search">Mes favoris</Link></li>
+                                {/*<li><Link to="/search">Mes favoris</Link></li>*/}
                                 <li><Link to="/search">Déconnexion</Link></li>
                             </> :
                             <>

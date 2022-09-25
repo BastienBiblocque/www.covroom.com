@@ -5,10 +5,11 @@ import SignInForm from "../Components/SignInForm";
 import Footer from "../Components/Footer";
 import MoreInformation from "../Components/SignInForm/moreInformation";
 import axios from "axios";
-
-
+import {useNavigate} from "react-router-dom";
 
 function SignIn() {
+    let navigate = useNavigate();
+
     const [type, setType] = useState("sign");
 
     const [mail, setMail] = useState(null);
@@ -40,8 +41,7 @@ function SignIn() {
                 gender: gender,
                 birthday: birthday,
                 role: 'user',
-            });
-            // console.log(newUsers)
+            }).then(()=>{navigate('/');});
         }
     }
 
