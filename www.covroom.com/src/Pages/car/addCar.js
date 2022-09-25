@@ -20,7 +20,7 @@ function AddCar() {
     console.log(color)
 
     const createCar = () => {
-        console.log(color);
+        const userId = localStorage.getItem('userId');
         axios.post(`http://127.0.0.1:8000/car/add`,{
             numberplate: numberplate,
             brand: brand,
@@ -28,7 +28,7 @@ function AddCar() {
             year: year,
             color: color,
             seat: seat,
-            idUser: 1,
+            idUser: userId,
             //a modifier
         })
         .then(res => {

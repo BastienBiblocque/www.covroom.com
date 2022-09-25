@@ -30,9 +30,11 @@ function CreateTravel() {
     const [isLoading, setIsLoading] = useState(false);
 
     const createTravel = () => {
+        const userId = localStorage.getItem('userId');
+
         axios.post(`http://127.0.0.1:8000/travel/new`,{
                 idCar: selectedCar,
-                idUser: 1,
+                idUser: userId,
                 seatAtTheBegining: numberOfSeat,
                 startLatitude: departLat,
                 startLongitude: departLong,

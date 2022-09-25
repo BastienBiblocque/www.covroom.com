@@ -13,7 +13,8 @@ function Car() {
     const [cars,setCars] =useState(null);
 
     const getData = () =>{
-        axios.get(`http://127.0.0.1:8000/car/user/${1}`)
+        const userId = localStorage.getItem('userId');
+        axios.get(`http://127.0.0.1:8000/car/user/${userId}`)
             .then(res => {
                 console.log(res.data);
                 setCars(res.data);
