@@ -5,7 +5,6 @@ import React, {useEffect, useState} from "react";
 import UserPicture from "../../Components/UserCard/UserPicture/userPicture";
 import TravelInformations from "../../Components/Travelnformations";
 import CarInformation from "../../Components/CarInformation";
-import {ThreeDots} from "react-loader-spinner";
 import Loading from "../../Components/AddTravelForm/loading";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
@@ -15,9 +14,14 @@ function Travel() {
     let navigate = useNavigate();
 
     function goNext() {
+        const userId = localStorage.getItem('userId');
+        if (!userId) {
+            navigate('/login');
+        }
+
         axios.post(`http://127.0.0.1:8000/booking/new`,{
             idTravel:id,
-            idUser:1,
+            idUser: userId,
             seat:selectedSeat,
         })
             .then(res => {

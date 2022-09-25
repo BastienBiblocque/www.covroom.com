@@ -11,7 +11,9 @@ function AddTravelCar(props) {
     const [cars, setCars] = useState(null);
 
     const getCar = () =>{
-        axios.get(`http://127.0.0.1:8000/car/user/${1}`)
+        const userId = localStorage.getItem('userId');
+
+        axios.get(`http://127.0.0.1:8000/car/user/${userId}`)
             .then(res => {
                 setCars(res.data);
             })

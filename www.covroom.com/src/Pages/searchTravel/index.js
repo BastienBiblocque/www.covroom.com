@@ -25,7 +25,7 @@ function SearchTravel() {
         <>
             <Header />
                 <div class="resultSearch">
-                    <h1 class="text-primary font-bold text-2xl">Resultas trouvés</h1>
+                    <h1 class="text-primary font-bold text-2xl">Résultas trouvés</h1>
                     {/*<button class="btn btn-secondary text-[#ffffff] rounded-full text-xs">*/}
                     {/*    Filtre*/}
                     {/*    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-6" fill="none" viewBox="0 3 10 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>*/}

@@ -5,7 +5,6 @@ import CarCard from "../../Components/CarCard";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useState, useEffect} from "react";
-import CardTravel from "../../Components/UserCard";
 
 function Car() {
     let navigate = useNavigate();
@@ -18,7 +17,6 @@ function Car() {
         const userId = localStorage.getItem('userId');
         axios.get(`http://127.0.0.1:8000/car/user/${userId}`)
             .then(res => {
-                console.log(res.data);
                 setCars(res.data);
             })
     }
