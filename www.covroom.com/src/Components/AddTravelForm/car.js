@@ -1,13 +1,42 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import {NotificationContainer, NotificationManager} from "react-notifications";
+import axios from "axios";
 
 function AddTravelCar(props) {
 
     const [car, setCar] = useState(null);
     const [seat, setSeat] = useState(null);
-    const [seatMax, setSeatMax] = useState(null);
 
+    const [cars, setCars] = useState(null);
+
+    const getCar = () =>{
+        axios.get(`http://127.0.0.1:8000/car/user/${1}`)
+            .then(res => {
+                setCars(res.data);
+            })
+    }
+
+    useEffect(()=>{
+        getCar();
+    },[])
+
+    const [potentialSeat, setPotentialSeat] = useState([]);
+
+    useEffect(()=>{
+        if (car) {
+            potentialSeat.length = 0;
+            const tmp = [];
+            cars.forEach((element)=>{
+                if (element.id.toString() === car.toString()) {
+                    for (let i = 0; i< element.seat;i++) {
+                        tmp.push(i+1);
+                    }
+                }
+            })
+            setPotentialSeat(tmp);
+        }
+    },[car])
 
     const goNext = () => {
         if (seat && car) {
@@ -16,8 +45,6 @@ function AddTravelCar(props) {
             props.setType('travelPreferences');
         } else {
             NotificationManager.error('Veuillez selectionner un véhicule et un nombre de places', 'Selectionner une voiture', 3000);
-            props.setType('travelPreferences');
-
         }
     }
 
@@ -54,9 +81,9 @@ function AddTravelCar(props) {
                                         setCar(e.target.value);
                                     }}>
                                         <option disabled selected>Veuillez choisir</option>
-                                        {/*{car?.map((i)=>(*/}
-                                        {/*    <option>{i}</option>*/}
-                                        {/*))}*/}
+                                        {cars?.map((car)=>(
+                                            <option value={car.id}>{car.model}</option>
+                                        ))}
                                     </select>
                                 </div>
                                 <div>
@@ -67,9 +94,9 @@ function AddTravelCar(props) {
                                         setSeat(e.target.value);
                                     }}>
                                         <option disabled selected>Veuillez choisir</option>
-                                        {/*{car?.map((i)=>(*/}
-                                        {/*    <option>{i}</option>*/}
-                                        {/*))}*/}
+                                        {potentialSeat?.map((i)=>(
+                                            <option value={i}>{i}</option>
+                                        ))}
                                     </select>
                                 </div>
                             </div>

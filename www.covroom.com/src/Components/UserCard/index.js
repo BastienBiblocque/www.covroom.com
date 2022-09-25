@@ -8,7 +8,7 @@ function CardTravel(props) {
 
     return (
         <>
-        <div class="card w-full bg-neutral shadow-xl cursor-pointer" onClick={()=>navigate('/travel/25')}>
+        <div class="card w-full bg-neutral shadow-xl cursor-pointer" onClick={()=>navigate(`../travel/${props.travel.id}`)}>
             <div class="card-body items-center text-center">
                 <TravelInformations startCity={props.travel.start_city} endCity={props.travel.end_city}/>
             </div>

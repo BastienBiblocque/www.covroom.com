@@ -31,9 +31,9 @@ function CreateTravel() {
 
     const createTravel = () => {
         axios.post(`http://127.0.0.1:8000/travel/new`,{
-                idCar: 1,
+                idCar: selectedCar,
                 idUser: 1,
-                seatAtTheBegining: 3,
+                seatAtTheBegining: numberOfSeat,
                 startLatitude: departLat,
                 startLongitude: departLong,
                 endLatitude: arriveLat,

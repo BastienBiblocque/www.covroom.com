@@ -1,7 +1,18 @@
-import React from 'react';
-import { useNavigate } from "react-router-dom";
+import React, {useState} from 'react';
 function MoreInformation(props) {
-    let navigate = useNavigate();
+
+    const [phone, setPhone] = useState(null);
+    const [gender, setGender] = useState(null);
+    const [birthday, setBirthday] = useState(null);
+
+    function goSign() {
+        if (phone && gender && birthday) {
+            props.setPhone(phone);
+            props.setGender(gender);
+            props.setBirthday(birthday);
+            props.postSign();
+        }
+    }
 
     return (
         <div className="card md:w-96 bg-base-100 shadow-xl my-8 mx-4 md:mx-0">
@@ -17,17 +28,21 @@ function MoreInformation(props) {
                             <input
                                 type="text"
                                 placeholder="Téléphone"
-                                className="input input-bordered input-primary w-full max-w-xs"/>
+                                className="input input-bordered input-primary w-full max-w-xs"
+                                onChange={(e)=>{setPhone(e.target.value)}}
+                            />
                         </div>
                         <div>
                             <label className="label">
                                 <span className="label-text">Genre</span>
                             </label>
-                            <select className="select select-primary w-full max-w-xs">
+                            <select className="select select-primary w-full max-w-xs"
+                                    onChange={(e)=>{setGender(e.target.value)}}
+                            >
                                 <option disabled selected>Genre</option>
-                                <option>Femme</option>
-                                <option>Homme</option>
-                                <option>Autre</option>
+                                <option value="women">Femme</option>
+                                <option value="men">Homme</option>
+                                <option value="other">Autre</option>
                             </select>
                         </div>
                         <div>
@@ -36,20 +51,21 @@ function MoreInformation(props) {
                             </label>
                             <input
                                 type="date"
-                                className="input input-bordered input-primary w-full max-w-xs"/>
+                                className="input input-bordered input-primary w-full max-w-xs"
+                                onChange={(e)=>{setBirthday(e.target.value)}}
+                            />
                         </div>
                     </div>
-                    <div>
-                        <input type="file" id="pictures" className="hidden" />
-                        <label
-                            htmlFor="pictures"
-                            className="text-primary">Ajouter une photo</label>
-                    </div>
+                    {/*<div>*/}
+                    {/*    <input type="file" id="pictures" className="hidden" />*/}
+                    {/*    <label*/}
+                    {/*        htmlFor="pictures"*/}
+                    {/*        className="text-primary">Ajouter une photo</label>*/}
+                    {/*</div>*/}
                 </div>
                 <div className="card-actions justify-end my-4">
                     <button className="btn btn-primary" onClick={() => {
-                        // navigate("/");
-                        props.postSign()
+                        goSign()
                     }}>Je m&apos;inscris</button>
                 </div>
             </div>
