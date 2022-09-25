@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import AddTravelIndex from "../Components/AddTravelForm";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
@@ -8,6 +8,7 @@ import AddTravelPrefrences from "../Components/AddTravelForm/travelPreferences";
 import AddTravelFinish from "../Components/AddTravelForm/finish";
 import AddTravelLoading from "../Components/AddTravelForm/loading";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 function CreateTravel() {
     const [type, setType] = useState("where");
@@ -28,10 +29,17 @@ function CreateTravel() {
     const [travelPreferences, setTravelPreferences] = useState(null);
 
     const [isLoading, setIsLoading] = useState(false);
+    const userId = localStorage.getItem('userId');
+    let navigate = useNavigate();
+
+    useEffect(()=>{
+        const userId = localStorage.getItem('userId');
+        if (!userId){
+            navigate('/login');
+        }
+    },[])
 
     const createTravel = () => {
-        const userId = localStorage.getItem('userId');
-
         axios.post(`http://127.0.0.1:8000/travel/new`,{
                 idCar: selectedCar,
                 idUser: userId,
