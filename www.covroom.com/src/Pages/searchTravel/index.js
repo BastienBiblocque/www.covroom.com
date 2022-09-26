@@ -12,7 +12,7 @@ function SearchTravel() {
     const [travels,setTravels] =useState(null);
 
     const getData = () =>{
-        axios.get(`http://127.0.0.1:8000/travel`)
+        axios.get(`http://127.0.0.1:8000/travel/search`)
             .then(res => {
                 setTravels(res.data);
             })
