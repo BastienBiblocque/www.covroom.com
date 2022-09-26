@@ -78,7 +78,7 @@ function Travel() {
                                     <p className="text-xl text-primary">{travel.start_city} - {travel.end_city}</p>
                                     <div className="border-b border-hr"/>
                                     <div className="items-left text-left py-5">
-                                        <TravelInformations startCity={travel.start_city} endCity={travel.end_city}/>
+                                        <TravelInformations startAt={travel.startAt} endAt={travel.endAt} startCity={travel.start_city} endCity={travel.end_city}/>
                                     </div>
                                     <div className="items-left text-left py-5">
                                         <CarInformation car={travel.car} seat={travel.seat} />

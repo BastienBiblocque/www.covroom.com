@@ -52,6 +52,7 @@ function CreateTravel() {
                 endCity: arriveCity,
                 startDay:startDay,
                 endDay:endDay,
+                travelTime: '1h30',
             })
     }
 
