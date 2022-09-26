@@ -31,8 +31,6 @@ function BookingConfirmation() {
         getTravel();
     },[])
 
-    console.log(booking);
-
     return (
         <>
             <div id="container" className="md:h-screen">

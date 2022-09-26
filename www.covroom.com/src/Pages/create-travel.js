@@ -50,10 +50,8 @@ function CreateTravel() {
                 endLongitude: arriveLong,
                 startCity: departCity,
                 endCity: arriveCity,
-
-            })
-            .then(res => {
-                console.log(res)
+                startDay:startDay,
+                endDay:endDay,
             })
     }
 

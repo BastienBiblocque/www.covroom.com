@@ -38,7 +38,6 @@ function SignIn() {
 
     const PostSign = async () => {
         if (mail && firstName && name && password && phone && gender && birthday) {
-            console.log(gender)
             await axios.post('http://127.0.0.1:8000/user/new',{
                 email: mail,
                 firstName: firstName,

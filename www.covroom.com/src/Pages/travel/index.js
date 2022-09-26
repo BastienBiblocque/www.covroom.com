@@ -40,7 +40,6 @@ function Travel() {
                 const tmp = [];
                 for (let i=0; i<res.data.seat.available; i++){
                     tmp.push(i+1);
-                    console.log(i)
                 }
                 setSeat(tmp);
                 setIsLoading(false);
