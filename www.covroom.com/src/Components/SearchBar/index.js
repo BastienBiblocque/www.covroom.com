@@ -1,32 +1,47 @@
 import {HiSearchCircle} from "react-icons/hi"
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {useState} from "react";
 
 function SearchBar() {
+
+    const [people, setPeople] = useState(null);
+    const [date, setDate] = useState(null);
+    let navigate = useNavigate();
+    function search() {
+        let url = "/search?"
+        if (people) {
+            url+= "people=" + people + "&"
+        }
+        if (date) {
+            url+= "date=" + date + "&"
+        }
+        navigate(url);
+    }
     return (
        <>
-        <div class="mx-auto bg-[#ffffff] w-7/12 lg:w-9/12 shadow-xl rounded-full border border-primary pl-5 pt-2 pb-2">
-        <div class="flex flex-start justify-between">
-            <div class="beginIn flex flex-col">
-                <p class="font-semibold">Lieu de départ</p>
-                <input type="text" placeholder="Paris" class="font-medium focus:outline-none"></input>
+        <div className="mx-auto bg-[#ffffff] w-7/12 lg:w-9/12 shadow-xl rounded-full border border-primary pl-5 pt-2 pb-2">
+        <div className="flex flex-start justify-between">
+            <div className="beginIn flex flex-col">
+                <p className="font-semibold">Lieu de départ</p>
+                <input type="text" placeholder="Paris" className="font-medium focus:outline-none"/>
             </div>
-            <div class="border h-5 w-0 border-grey bg-grey mr-10 mt-3"></div> 
-            <div class="endIn flex flex-col">
-                <p class="font-semibold">Lieu d'arrivé</p>
-                <input type="text" placeholder="Metz" class="font-medium focus:outline-none"></input>
+            <div className="border h-5 w-0 border-grey bg-grey mr-10 mt-3"/>
+            <div className="endIn flex flex-col">
+                <p className="font-semibold">Lieu d'arrivé</p>
+                <input type="text" placeholder="Metz" className="font-medium focus:outline-none"/>
             </div>
-            <div class="border h-5 w-0 border-grey bg-grey mr-1 mt-3"></div> 
-            <div class="date flex flex-col">
-                <p class="font-semibold">Date</p>
-                <input type="text" placeholder="14/08/2022" class="font-medium focus:outline-none"></input>
+            <div className="border h-5 w-0 border-grey bg-grey mr-1 mt-3"/>
+            <div className="date flex flex-col">
+                <p className="font-semibold">Date</p>
+                <input type="date" className="font-medium focus:outline-none" onChange={(e)=>{setDate(e.target.value)}}/>
             </div>
-            <div class="border h-5 w-0 border-grey bg-grey mr-10 mt-3"></div> 
-            <div class="person flex flex-col">
-                <p class="font-semibold">Personnes</p>
-                <input type="text" placeholder="2" class="font-medium focus:outline-none"></input>
+            <div className="border h-5 w-0 border-grey bg-grey mr-10 mt-3"/>
+            <div className="person flex flex-col">
+                <p className="font-semibold">Personnes</p>
+                <input type="text" placeholder="2" className="font-medium focus:outline-none" onChange={(e)=>{setPeople(e.target.value)}} />
             </div>
-            <div class="border h-5 w-0 border-grey bg-grey mr-5 mt-3"></div> 
-            <Link to="/" class="mr-5"><HiSearchCircle size={45} color={"#7D2ED3"}/></Link>
+            <div className="border h-5 w-0 border-grey bg-grey mr-5 mt-3"/>
+            <div onClick={search} className="mr-5"><HiSearchCircle size={45} color={"#7D2ED3"}/></div>
             </div>
         </div>
        </>
