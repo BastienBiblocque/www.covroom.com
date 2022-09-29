@@ -23,6 +23,7 @@ import Travel from "./Pages/travel";
 import MyTravels from "./Pages/myTravels";
 import BookingConfirmation from "./Pages/BookingConfirmation";
 import Booking from "./Pages/Booking";
+import Profil from './Pages/profil';
 import MyBookings from "./Pages/myBookings";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -41,6 +42,7 @@ root.render(
             <Route path="/travel/:id" element={<Travel />} />
             <Route path="/bookingConfirmation/:id" element={<BookingConfirmation />} />
             <Route path="/booking" element={<Booking />} />
+            <Route path="/profil" element={<Profil />} />
             <Route path="/myBookings/" element={<MyBookings />} />
             {/*<Route index element={<Home />} />*/}
             {/*<Route path="teams" element={<Teams />}>*/}
