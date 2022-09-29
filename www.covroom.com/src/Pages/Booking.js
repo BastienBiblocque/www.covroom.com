@@ -16,7 +16,9 @@ function Booking() {
     const [bookings, setBookings] = useState(null);
 
     const getBooking = () =>{
-        axios.get(`http://127.0.0.1:8000/booking/retrieve/user/${1}`)
+        const userId = localStorage.getItem('userId');
+
+        axios.get(`http://127.0.0.1:8000/booking/retrieve/user/${userId}`)
             .then(res => {
                 setBookings(res.data);
                 setIsLoading(false);

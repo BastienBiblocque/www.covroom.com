@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import axios from "axios";
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
@@ -40,8 +40,33 @@ function AddTravelIndex(props) {
             props.setArriveLong(arriveSelected.geometry.coordinates[1]);
             props.setType('when');
         } else {
-            NotificationManager.error('Choisis une ville ou jte goume', 'Selectionner les deux villes', 3000);
+            NotificationManager.error('Erreur', 'Selectionner les deux villes', 3000);
         }
+    }
+
+    //MAP
+
+    const mapContainer = useRef(null);
+    const map = useRef(null);
+    const [zoom, setZoom] = useState(4);
+
+    useEffect(() => {
+            if (map.current) return; // initialize map only once
+            map.current = new mapboxgl.Map({
+                container: mapContainer.current,
+                style: 'mapbox://styles/mapbox/outdoors-v11',
+                center: [2.2, 48.5],
+                zoom: zoom
+            });
+    },[]);
+    //END MAP
+
+    const startMarker = new mapboxgl.Marker();
+
+    function addMarker(find) {
+        startMarker.remove();
+        startMarker.setLngLat(find.center)
+            .addTo(map.current);
     }
 
     return (
@@ -51,7 +76,7 @@ function AddTravelIndex(props) {
                 <div>
                     <div>
                         <div>
-                            map here
+                            <div ref={mapContainer} className="map-container h-[400px]" />
                         </div>
                     </div>
                 </div>
@@ -81,6 +106,7 @@ function AddTravelIndex(props) {
                                     <select className="select select-primary w-full max-w-xs"
                                         onChange={(e)=>{
                                             setDepartSelected(departSelection.find(element=>element.id === e.target.value));
+                                            addMarker(departSelection.find(element=>element.id === e.target.value));
                                         }}>
                                         <option disabled selected>Veuillez choisir</option>
                                         {departSelection?.map((i)=>(
@@ -106,6 +132,7 @@ function AddTravelIndex(props) {
                                     </label>
                                     <select className="select select-primary w-full max-w-xs" onClick={(e)=>{
                                         setArriveSelected(arriveSelection.find(element=>element.id === e.target.value));
+                                        addMarker(arriveSelection.find(element=>element.id === e.target.value));
                                     }}>
                                         <option disabled selected>Veuillez choisir</option>
                                         {arriveSelection?.map((i)=>(

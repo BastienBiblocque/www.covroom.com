@@ -9,14 +9,15 @@ import CarBot from '../img/svg/carBot.svg';
 import SearchBar from '../Components/SearchBar';
 import UserCard from '../Components/UserCard';
 import axios from "axios";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
 function Index() {
+  const [travels, setTravels] = useState(null);
 
   const getData = () =>{
-    axios.get(`http://127.0.0.1:8000/user`)
+    axios.get(`http://127.0.0.1:8000/travel/last/3`)
         .then(res => {
-          console.log(res)
+          setTravels(res.data);
         })
   }
 
@@ -52,17 +53,15 @@ function Index() {
         </div>
       </div>
       <div class="body">
-        <h1 class="text-primary font-bold text-4xl mt-20 mb-16 ml-48 underline underline-offset-8">Trajets pour vous :</h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-4">
-          <UserCard/>
-          <UserCard/>
-          <UserCard/>
-        </div>
+        {/*<h1 class="text-primary font-bold text-4xl mt-20 mb-16 ml-48 underline underline-offset-8">Trajets pour vous :</h1>*/}
+        {/*<div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-4">*/}
+        {/*  /!*<UserCard/>*!/*/}
+        {/*  /!*<UserCard/>*!/*/}
+        {/*  /!*<UserCard/>*!/*/}
+        {/*</div>*/}
         <h2 class="text-primary font-bold text-4xl mt-20 mb-16 ml-48 underline underline-offset-8">Nouveaux trajets :</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-4">
-          <UserCard/>
-          <UserCard/>
-          <UserCard/>
+          {travels? travels.map((travel)=><UserCard travel={travel}/>):null}
         </div>
         <div class="networkDriver flex m-20">
           <div class="card w-full bg-neutral text-neutral-content shadow-xl flex flex-row p-5">

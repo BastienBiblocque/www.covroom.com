@@ -23,8 +23,12 @@ import Travel from "./Pages/travel";
 import MyTravels from "./Pages/myTravels";
 import BookingConfirmation from "./Pages/BookingConfirmation";
 import Booking from "./Pages/Booking";
-import Profil from './Pages/profil';
+import Logout from "./Pages/logout";
+import MyTravels from "./Pages/myTravels";
 import MyBookings from "./Pages/myBookings";
+import 'mapbox-gl/dist/mapbox-gl.css';
+import MyProfile from "./Pages/myProfile";
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
@@ -42,8 +46,12 @@ root.render(
             <Route path="/travel/:id" element={<Travel />} />
             <Route path="/bookingConfirmation/:id" element={<BookingConfirmation />} />
             <Route path="/booking" element={<Booking />} />
-            <Route path="/profil" element={<Profil />} />
-            <Route path="/myBookings/" element={<MyBookings />} />
+            <Route path="/logout" element={<Logout />} />
+            <Route path="/myBookings" element={<MyBookings />} />
+            <Route path="/myTravels" element={<MyTravels />} />
+            <Route path="/logout" element={<Logout />} />
+            <Route path="/myProfile" element={<MyProfile />} />
+
             {/*<Route index element={<Home />} />*/}
             {/*<Route path="teams" element={<Teams />}>*/}
             {/*    <Route path=":teamId" element={<Team />} />*/}
