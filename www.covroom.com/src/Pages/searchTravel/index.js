@@ -15,11 +15,27 @@ function SearchTravel() {
     const [searchParams] = useSearchParams();
 
     const getData = () =>{
-        console.log(searchParams.get("people"));
-        axios.get(`http://127.0.0.1:8000/travel/search`,{
-            people:searchParams.get("people") || 0,
-            date:searchParams.get("date") || 0,
-        })
+        const dataToSend = {
+            people: searchParams.get("people") || 0,
+            date: searchParams.get("date") || 0,
+            startLong: 'null',
+            startLat: 'null',
+            endLong: 'null',
+            endLat: 'null',
+        };
+        if (searchParams.get("start")) {
+            const startSplit = searchParams.get("start").split([',']);
+            dataToSend.startLong = startSplit[1] || 'null';
+            dataToSend.startLat = startSplit[0] || 'null';
+        }
+        if (searchParams.get("end")) {
+            const endSplit = searchParams.get("end").split([',']);
+            dataToSend.endLong = endSplit[1] || 'null';
+            dataToSend.endLat = endSplit[0] || 'null';
+        }
+
+
+        axios.post(`http://127.0.0.1:8000/travel/search`,dataToSend)
             .then(res => {
                 setTravels(res.data);
             })
