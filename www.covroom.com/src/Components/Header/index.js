@@ -66,7 +66,7 @@ function Header() {
                     </label>
                     <ul tabIndex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                         {usersLog ? <>
-                                <li><Link to="/profil">Mon profil</Link></li>
+                                <li><Link to="/myProfile">Mon profil</Link></li>
                                 {/*<li><Link to="/profil">Mes alertes</Link></li>*/}
                                 <li><Link to="/myTravels">Mes trajets</Link></li>
                                 <li><Link to="/myBookings">Mes reservations</Link></li>
