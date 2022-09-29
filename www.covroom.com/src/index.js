@@ -20,6 +20,7 @@ import SearchTravel from './Pages/searchTravel';
 import UpdateCar from "./Pages/car/updateCar";
 import CreateTravel from "./Pages/create-travel";
 import Travel from "./Pages/travel";
+import MyTravels from "./Pages/myTravels";
 import BookingConfirmation from "./Pages/BookingConfirmation";
 import Booking from "./Pages/Booking";
 import Logout from "./Pages/logout";
@@ -27,6 +28,7 @@ import MyTravels from "./Pages/myTravels";
 import MyBookings from "./Pages/myBookings";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import MyProfile from "./Pages/myProfile";
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
@@ -40,6 +42,7 @@ root.render(
             <Route path="/search" element={<SearchTravel />} />
             <Route path="/car/update" element={<UpdateCar />} />
             <Route path="/create-travel" element={<CreateTravel />} />
+            <Route path="/myTravel/" element={<MyTravels />} />
             <Route path="/travel/:id" element={<Travel />} />
             <Route path="/bookingConfirmation/:id" element={<BookingConfirmation />} />
             <Route path="/booking" element={<Booking />} />
@@ -48,6 +51,7 @@ root.render(
             <Route path="/myTravels" element={<MyTravels />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/myProfile" element={<MyProfile />} />
+
             {/*<Route index element={<Home />} />*/}
             {/*<Route path="teams" element={<Teams />}>*/}
             {/*    <Route path=":teamId" element={<Team />} />*/}
