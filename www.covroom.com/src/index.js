@@ -25,6 +25,7 @@ import Booking from "./Pages/Booking";
 import Logout from "./Pages/logout";
 import MyTravels from "./Pages/myTravels";
 import MyBookings from "./Pages/myBookings";
+import 'mapbox-gl/dist/mapbox-gl.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
