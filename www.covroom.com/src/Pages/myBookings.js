@@ -33,6 +33,7 @@ function MyBookings() {
                 <div className="flex">
                     <div className="mx-auto">
                         <div className="grid grid-cols-2 gap-8">
+
                             {bookings ? bookings.map((booking)=>
                                 (
                                     <div className="card md:w-96 bg-base-100 shadow-xl my-8 mx-4 md:mx-0">
@@ -55,6 +56,7 @@ function MyBookings() {
                                                     </label>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
                                 )
