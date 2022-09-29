@@ -23,6 +23,8 @@ import Travel from "./Pages/travel";
 import BookingConfirmation from "./Pages/BookingConfirmation";
 import Booking from "./Pages/Booking";
 import Logout from "./Pages/logout";
+import MyTravels from "./Pages/myTravels";
+import MyBookings from "./Pages/myBookings";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
@@ -39,6 +41,9 @@ root.render(
             <Route path="/travel/:id" element={<Travel />} />
             <Route path="/bookingConfirmation/:id" element={<BookingConfirmation />} />
             <Route path="/booking" element={<Booking />} />
+            <Route path="/logout" element={<Logout />} />
+            <Route path="/myBookings" element={<MyBookings />} />
+            <Route path="/myTravels" element={<MyTravels />} />
             <Route path="/logout" element={<Logout />} />
             {/*<Route index element={<Home />} />*/}
             {/*<Route path="teams" element={<Teams />}>*/}

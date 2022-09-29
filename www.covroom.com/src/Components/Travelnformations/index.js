@@ -30,7 +30,7 @@ function TravelInformations(props) {
             <div className="date font-bold mr-5 mt-5">{startDay}</div>
             <div className="hours">
                 <div className="startHours font-medium">{startHours}</div>
-                <div className="timeDuration text-xs">1h00</div>
+                <div className="timeDuration text-xs">1h30</div>
                 <div className="endHours font-medium">{endHours}</div>
             </div>
             <div className="way border h-18 w-0 border-black ml-5 mr-5"/>

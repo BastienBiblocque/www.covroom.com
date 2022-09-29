@@ -9,77 +9,55 @@ import axios from 'axios';
 
 function MyTravels() {
 
-    // const [travel, setTravel] =useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
-    // let { id } = useParams();
+    const [travels, setTravels] = useState([]);
 
-    // const getTravel = () =>{
-    //     axios.get(`http://127.0.0.1:8000/travel/retrieve/${id}`)
-    //         .then(res => {
-    //             setTravel(res.data);
-    //             const tmp = [];
-    //             for (let i=0; i<res.data.seat.available; i++){
-    //                 tmp.push(i+1);
-    //                 console.log(i)
-    //             }
-    //             setSeat(tmp);
-    //             setIsLoading(false);
-    //         })
-    // }
+    const getTravels = () =>{
+        const userId = localStorage.getItem('userId');
 
-    // useEffect(()=>{
-    //     getTravel();
-    // },[])
+        axios.get(`http://127.0.0.1:8000/travel/retrieve/user/${userId}`)
+            .then(res => {
+                setTravels(res.data);
+                setIsLoading(false);
+            })
+    }
 
-    // const [seat, setSeat] = useState([]);
-
-    // const [selectedSeat, setSelectedSeat] = useState(1);
-
-    // const [isLoading, setIsLoading] = useState(true);
-
-    const car = {
-        model: "207",
-        color: "Rouge"
-    };
-
-    const seat = {
-        available: 4,
-        max: 5
-    };
+    useEffect(()=>{
+        getTravels();
+    },[])
 
     return(
         <>
-            <div id="container" className="md:h-screen">
+            <div id="container" className="md:min-h-screen">
                 <Header />
                 <div className="flex">
                     <div className="mx-auto">
                         <div className="grid grid-cols-2 gap-8">
-                            <div className="card md:w-96 bg-base-100 shadow-xl my-8 mx-4 md:mx-0">
-                                    <div className="card-body text-center">
-                                        <p className="text-xl text-primary">Metz - Nancy</p>
-                                        <div className="border-b border-hr"/>
-                                        <div className="items-left text-left py-5">
-                                            <TravelInformations startCity="Metz" endCity="Nancy"/>
-                                        </div>
-                                        <div className="items-left text-left py-5">
-                                            <CarInformation car={car} seat={seat} />
-                                        </div>
-                                        <div className="items-left text-left py-5">
-                                            <ul>
-                                                <li><a>Hugo Kremer</a></li>
-                                                <li><a>Jean Marmhoud</a></li>
-                                                <li><a>Nini LeBg De Paris</a></li>
-                                            </ul>
-                                        </div>
-                                        <div className="grid md:grid-cols-2 md:gap-4">
-                                        <div>
-                                            <label className="label">
-                                                <span className="label-text">Place réservés</span>
-                                            </label>
+                            {travels ? travels.map((travel)=>
+                                (
+                                    <div className="card md:w-96 bg-base-100 shadow-xl my-8 mx-4 md:mx-0">
+                                        <div className="card-body text-center">
+                                            <p className="text-xl text-primary">{travel.startCity} - {travel.endCity}</p>
+                                            <div className="border-b border-hr"/>
+                                            <div className="items-left text-left py-5">
+                                                <TravelInformations startAt={travel.startAt} endAt={travel.endAt} startCity={travel.startCity} endCity={travel.endCity}/>
+                                            </div>
+                                            <div className="items-left text-left py-5">
+                                                <div className="font-bold mr-5 mt-5">{travel.car.model} - {travel.car.color}</div>
+                                                <div className="font-medium">{travel.seats.available} réservé sur {travel.seats.max}</div>
+                                            </div>
+                                                <div className="items-left text-left py-5">
+                                                <ul>
+                                                    {travel.seat.map((seat)=>
+                                                        seat.firstname ?(<li className="text-primary hover:cursor-pointer"><a>{seat.name} - {seat.firstname}</a></li>) :null
+                                                    )}
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                )
+                            ) :null}
                         </div>
                     </div>
                 </div>
