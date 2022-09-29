@@ -5,6 +5,7 @@ import AddCarForm from "../../Components/AddCarForm";
 import React, {useEffect, useState} from "react";
 import MoreInformation from "../../Components/AddCarForm/moreInformation";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 
 function AddCar() {
@@ -17,10 +18,10 @@ function AddCar() {
     const [color, setColor] = useState(null);
     const [seat, setSeat] = useState(null);
 
-    console.log(color)
+    let navigate = useNavigate();
 
     const createCar = () => {
-        console.log(color);
+        const userId = localStorage.getItem('userId');
         axios.post(`http://127.0.0.1:8000/car/add`,{
             numberplate: numberplate,
             brand: brand,
@@ -28,11 +29,10 @@ function AddCar() {
             year: year,
             color: color,
             seat: seat,
-            idUser: 1,
-            //a modifier
+            idUser: userId,
         })
         .then(res => {
-            console.log(res)
+            navigate('/car');
         })
     }
     useEffect(()=>{

@@ -6,9 +6,9 @@ import React from 'react';
 
 function CarCard(props) {
     function deleteCar() {
-        axios.post(`http://127.0.0.1:8000/car/delete/${props.car.id}`)
+        axios.delete(`http://127.0.0.1:8000/car/delete/${props.car.id}`)
             .then(res => {
-                console.log(res)
+                props.getData();
             })
             .catch(err=>{
                 NotificationManager.error('Impossible de supprimer cette voiture car elle est lié à un trajet', 'Erreur');

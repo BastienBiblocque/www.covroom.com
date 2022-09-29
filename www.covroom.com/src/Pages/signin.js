@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../App.css';
 import Header from "../Components/Header";
 import SignInForm from "../Components/SignInForm";
@@ -21,6 +21,13 @@ function SignIn() {
     const [gender, setGender] = useState(null);
     const [birthday, setBirthday] = useState(null);
 
+    useEffect(()=>{
+        const userId = localStorage.getItem('userId');
+        if (userId){
+            navigate('/');
+        }
+    },[])
+
     const SignType = () => {
         if (type === 'sign') {
             return (<SignInForm setType={setType} setMail={setMail} setFirstName={setFirstName} setName={setName} setPassword={setPassword} />)
@@ -31,7 +38,6 @@ function SignIn() {
 
     const PostSign = async () => {
         if (mail && firstName && name && password && phone && gender && birthday) {
-            console.log(gender)
             await axios.post('http://127.0.0.1:8000/user/new',{
                 email: mail,
                 firstName: firstName,

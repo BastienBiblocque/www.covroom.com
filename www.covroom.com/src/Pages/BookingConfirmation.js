@@ -31,8 +31,6 @@ function BookingConfirmation() {
         getTravel();
     },[])
 
-    console.log(booking);
-
     return (
         <>
             <div id="container" className="md:h-screen">
@@ -47,7 +45,7 @@ function BookingConfirmation() {
                                         <p className="text-xl text-primary">Vous partez pour {booking.end_city} !</p>
                                         <div className="border-b border-hr"/>
                                         <div className="items-left text-left pt-5">
-                                            <TravelInformations startCity={booking.start_city} endCity={booking.end_city}/>
+                                            <TravelInformations startAt={booking.startAt} endAt={booking.endAt} startCity={booking.start_city} endCity={booking.end_city}/>
                                             <div className="items-left text-left pb-5 mt-4">
                                                 <UserPicture name={booking.user.name} firstname={booking.user.firstname}/>
                                             </div>
