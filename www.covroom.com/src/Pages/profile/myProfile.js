@@ -1,7 +1,9 @@
-import '../App.css';
+import '../../App.css';
 import {AiFillStar} from "react-icons/ai";
-import Header from "../Components/Header";
-import Footer from "../Components/Footer";
+import Header from "../../Components/Header";
+import Footer from "../../Components/Footer";
+import UserPicture from "../../Components/UserCard/UserPicture/userPicture";
+import NoteCard from '../../Components/NoteCard';
 import React, {useEffect, useRef, useState} from "react";
 
 
@@ -53,16 +55,22 @@ function MyProfile() {
                                                 <div className="items-center text-center">
                                                     <p class="font-bold text-[#7d2ed3] pt-5">Avis recu</p>
                                                 </div>
+                                                <div className="items-center text-left my-5 mr-10">
+                                                    <NoteCard name="NOM" firstname="PRENOM" review="Lorem Ipsum Blablablabla"/>
+                                                </div>
                                                 <div className="items-center text-center">
-                                                    <button className="btn btn-secondary">Voir plus</button>
+                                                    <button className="btn btn-outline btn-primary">Voir plus</button>
                                                 </div>
                                             </div>
                                             <div className="mx-4">
-                                                <div className="items-center text-center">
-                                                        <p class="font-bold text-[#7d2ed3] pt-5">Avis laissé</p>
+                                            <div className="items-center text-center">
+                                                    <p class="font-bold text-[#7d2ed3] pt-5">Avis laissé</p>
+                                                </div>
+                                                <div className="items-center text-left my-5">
+                                                    <NoteCard name="NOM" firstname="PRENOM" review="Lorem Ipsum Blablablabla"/>
                                                 </div>
                                                 <div className="items-center text-center">
-                                                    <button className="btn btn-secondary">Voir plus</button>
+                                                    <button className="btn btn-outline btn-primary">Voir plus</button>
                                                 </div>
                                             </div>
                                         </div>
