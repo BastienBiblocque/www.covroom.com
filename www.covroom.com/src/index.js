@@ -24,7 +24,6 @@ import MyTravels from "./Pages/myTravels";
 import BookingConfirmation from "./Pages/BookingConfirmation";
 import Booking from "./Pages/Booking";
 import Logout from "./Pages/logout";
-import MyTravels from "./Pages/myTravels";
 import MyBookings from "./Pages/myBookings";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import MyProfile from "./Pages/myProfile";
