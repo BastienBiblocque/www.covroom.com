@@ -50,7 +50,7 @@ function MyRatings() {
                                     <div className="grid grid-cols-3">
                                             <div className="mx-4">
                                                 <div className="items-center text-left my-5 mr-10">
-                                                    <NoteCard name={nom} firstname={prenom} review="Lorem Ipsum"/>
+                                                    <NoteCard name={nom} firstname={prenom} review="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in nunc placerat, tincidunt velit sit amet, lacinia mi. Etiam eu enim lacus. Aliquam bibendum sem bibendum arcu ullamcorper, at tincidunt justo lacinia. Nam eget orci quam. Mauris efficitur vestibulum nibh, ut egestas mauris vulputate at. Aenean eleifend odio id blandit vulputate. Etiam vestibulum turpis at lorem volutpat, sed euismod nibh laoreet. Curabitur vitae ultrices velit. Integer tincidunt elit vel orci sollicitudin, eget scelerisque justo pulvinar. Donec euismod condimentum tempor. Nam maximus sed nunc a egestas. Etiam ultrices felis in sapien dignissim lacinia. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam non mauris mollis, pretium risus ut, tempus mi. " isDetail={true}/>
                                                 </div>
                                             </div>
                                             <div className="mx-4">
@@ -75,7 +75,7 @@ function MyRatings() {
                                             </div>
                                             <div className="mx-4">
                                                 <div className="items-center text-left my-5 mr-10">
-                                                    <NoteCard name={nom} firstname={prenom} review="Lorem Ipsum Blablablabla"/>
+                                                    <NoteCard name={nom} firstname={prenom} review="Lorem Ipsum Blablablabla" isDetail={true}/>
                                                 </div>
                                             </div>
                                         </div>
