@@ -2,14 +2,34 @@ import '../../App.css';
 import {AiFillStar} from "react-icons/ai";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
-import UserPicture from "../../Components/UserCard/UserPicture/userPicture";
 import NoteCard from '../../Components/NoteCard';
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 import React, {useEffect, useRef, useState} from "react";
 
 
 function MyProfile() {
 
     const isUser = true;
+
+    let navigate = useNavigate();
+
+    const [profile, setProfile] = useState(null);
+
+    const getData = () =>{
+        const userId = localStorage.getItem('userId');
+        if (!userId){
+            navigate('/');
+        }
+        axios.get(`http://127.0.0.1:8000/user/retrieve/${userId}`)
+            .then(res => {
+                setProfile(res.data);
+            })
+    }
+
+    useEffect(()=>{
+        getData();
+    },[])
 
     return (
         <>
