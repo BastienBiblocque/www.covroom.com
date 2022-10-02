@@ -30,6 +30,7 @@ import MyProfile from "./Pages/profile/myProfile";
 import MyRatings from "./Pages/profile/myRatings";
 import MyReviews from "./Pages/profile/myReviews";
 import MyProfileUpdate from "./Pages/profile/myProfileUpdate";
+import Profil from "./Pages/profil";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -56,6 +57,9 @@ root.render(
             <Route path="/myRatings" element={<MyRatings />} />
             <Route path="/MyReviews" element={<MyReviews />} />
             <Route path="/myProfile/update" element={<MyProfileUpdate />} />
+
+            <Route path="/users/:id" element={<Profil />} />
+
 
             {/*<Route index element={<Home />} />*/}
             {/*<Route path="teams" element={<Teams />}>*/}
