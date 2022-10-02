@@ -66,7 +66,7 @@ function Index() {
         <div class="networkDriver flex m-20">
           <div class="card w-full bg-neutral text-neutral-content shadow-xl flex flex-row p-5">
             <div class="join flex items-center flex-col justify-center ml-40">
-              <h3 class="text-primary font-bold text-4xl mt-20 mb-16 text-center">Rejoignez le réseau de conducteur</h3>
+              <h3 class="text-primary font-bold text-4xl mt-20 mb-16 text-center">Rejoignez le réseau de conducteurs</h3>
               <Link to="signIn"><button class="btn color-primary bg-primary text-[#ffffff] hover:bg-secondary border-none w-12/12 self-center rounded-full">Je rejoins</button></Link>
             </div>
             <img src={CarBot} class="w-1/2 mx-auto hidden md:flex" alt="Voiture bleu pour inscription"></img>
