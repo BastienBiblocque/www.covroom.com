@@ -29,6 +29,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import MyProfile from "./Pages/profile/myProfile";
 import MyRatings from "./Pages/profile/myRatings";
 import MyReviews from "./Pages/profile/myReviews";
+import MyProfileUpdate from "./Pages/profile/myProfileUpdate";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -54,6 +55,7 @@ root.render(
             <Route path="/myProfile" element={<MyProfile />} />
             <Route path="/myRatings" element={<MyRatings />} />
             <Route path="/MyReviews" element={<MyReviews />} />
+            <Route path="/myProfile/update" element={<MyProfileUpdate />} />
 
             {/*<Route index element={<Home />} />*/}
             {/*<Route path="teams" element={<Teams />}>*/}
