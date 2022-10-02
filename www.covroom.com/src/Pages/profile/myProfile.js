@@ -72,6 +72,9 @@ function MyProfile() {
                                         <div className="items-center text-center py-5">
                                             <p class="font-bold">{profile.name} {profile.firstName}</p>
                                         </div>
+                                        <div className="items-center text-center ">
+                                            <p>{profile.description}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
