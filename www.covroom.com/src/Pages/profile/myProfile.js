@@ -43,15 +43,13 @@ function MyProfile() {
         }
     },[profile && rate])
 
-    console.log(rate);
-
     useEffect(()=>{
         getData();
     },[])
 
     return (
         <>
-            <div id="container" className="md:h-screen">
+            <div id="container" className="md:min-h-screen">
                 <Header />
                 <div className="flex">
                     <div className="mx-auto">
