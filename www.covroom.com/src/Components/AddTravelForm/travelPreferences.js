@@ -1,8 +1,20 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from "axios";
 
 function AddTravelPrefrences(props) {
 
     const [travelPreferences, setTravelPrefrences] = useState(null);
+
+    const getCar = () =>{
+        axios.get(`http://127.0.0.1:8000/travel_preference`)
+            .then(res => {
+                setTravelPrefrences(res.data);
+            })
+    }
+
+    useEffect(()=>{
+        getCar();
+    },[])
 
     const goNext = () => {
         props.setTravelPreferenceprops('travelPreferences');

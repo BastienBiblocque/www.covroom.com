@@ -47,7 +47,7 @@ function BookingConfirmation() {
                                         <div className="items-left text-left pt-5">
                                             <TravelInformations startAt={booking.startAt} endAt={booking.endAt} startCity={booking.start_city} endCity={booking.end_city}/>
                                             <div className="items-left text-left pb-5 mt-4">
-                                                <UserPicture name={booking.user.name} firstname={booking.user.firstname}/>
+                                                <UserPicture name={booking.user.name} firstname={booking.user.firstname} displayRate={false}/>
                                             </div>
                                         </div>
                                         <div className="items-left text-left pb-5">

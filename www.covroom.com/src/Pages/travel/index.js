@@ -113,7 +113,7 @@ function Travel() {
                                         <CarInformation car={travel.car} seat={travel.seat} />
                                     </div>
                                     <div className="items-left text-left py-5">
-                                        <UserPicture name={travel.user.name} firstname={travel.user.firstname}/>
+                                        <UserPicture name={travel.user.name} firstname={travel.user.firstname} displayRate={false}/>
                                     </div>
                                     <div className="grid md:grid-cols-2 md:gap-4">
                                         <div>

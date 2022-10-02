@@ -6,6 +6,7 @@ import NoteCard from '../../Components/NoteCard';
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import React, {useEffect, useRef, useState} from "react";
+import {ThreeDots} from "react-loader-spinner";
 
 
 function MyProfile() {
@@ -15,6 +16,11 @@ function MyProfile() {
     let navigate = useNavigate();
 
     const [profile, setProfile] = useState(null);
+    const [rate, setRate] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+
+    const [moreFromDisplay, setMoreFromDisplay] = useState(false);
+    const [moreToDisplay, setMoreToDisplay] = useState(false);
 
     const getData = () =>{
         const userId = localStorage.getItem('userId');
@@ -25,7 +31,19 @@ function MyProfile() {
             .then(res => {
                 setProfile(res.data);
             })
+        axios.get(`http://127.0.0.1:8000/rate/user/${userId}`)
+            .then(res => {
+                setRate(res.data);
+            })
     }
+
+    useEffect(()=>{
+        if (profile && rate) {
+            setIsLoading(false);
+        }
+    },[profile && rate])
+
+    console.log(rate);
 
     useEffect(()=>{
         getData();
@@ -37,6 +55,13 @@ function MyProfile() {
                 <Header />
                 <div className="flex">
                     <div className="mx-auto">
+                        {isLoading ? (<ThreeDots
+                            height="150"
+                            width="150"
+                            color='#7D2ED3'
+                            ariaLabel='loading'
+                            wrapperClass="mx-auto"
+                        />) : (
                         <div className="grid grid-cols-10 gap-8">
                             <div className="col-span-3">
                                 <div className="card md:w-72 bg-[#eff0f2] shadow-xl my-8 mx-4 md:mx-0">
@@ -47,7 +72,7 @@ function MyProfile() {
                                             </div>
                                         </div>
                                         <div className="items-center text-center py-5">
-                                            <p class="font-bold">Nom Prenom</p>
+                                            <p class="font-bold">{profile.name} {profile.firstName}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -58,13 +83,13 @@ function MyProfile() {
                                     <div className="row-span-1">
                                         <div className="grid grid-cols-2">
                                             <div className="items-left text-left py-5">
-                                                <p class="font-bold text-[#7d2ed3] pt-5">Nom Prenom</p>
+                                                <p class="font-bold text-[#7d2ed3] pt-5">{profile.name} {profile.firstName}</p>
                                             </div>
                                             <div className="items-right text-right py-5">
-                                                {isUser ? (<button className="btn btn-primary">Modifier</button>) : null }
+                                                {isUser ? (<button className="btn btn-primary" onClick={()=>{navigate('/myProfile/update')}}>Modifier</button>) : null }
                                             </div>
                                             <div className="pt-5 mb-4">
-                                                <span class="flex gap-1 font-bold"><AiFillStar/>4,5 - 2 avis</span> 
+                                                <span class="flex gap-1 font-bold"><AiFillStar/>{rate.average} - {rate.quantity} avis</span>
                                             </div>
                                         </div>
                                         <div className="border-b border-hr"/>
@@ -76,22 +101,52 @@ function MyProfile() {
                                                     <p class="font-bold text-[#7d2ed3] pt-5">Avis recu</p>
                                                 </div>
                                                 <div className="items-center text-left my-5 mr-10">
-                                                    <NoteCard name="NOM" firstname="PRENOM" review="Lorem Ipsum Blablablabla"/>
+                                                    {rate.to.length  ? !moreToDisplay ?
+                                                            (
+                                                                <NoteCard name={rate.to[0].ratedUser.name} firstname={rate.to[0].ratedUser.firstName} review={rate.to[0].comment}/>
+                                                            ):null
+                                                        :(
+                                                            <div className="items-center text-center">
+                                                                <p className="font-bold text-[#7d2ed3] pt-5">Aucun avis recu</p>
+                                                            </div>
+                                                        )}
+                                                    {moreToDisplay ? rate.to.map((element)=>
+                                                        (
+                                                            <NoteCard name={element.ratedUser.name} firstname={element.ratedUser.firstName} review={element.comment}/>
+                                                        )
+                                                    ) :null}
                                                 </div>
-                                                <div className="items-center text-center">
-                                                    <button className="btn btn-outline btn-primary">Voir plus</button>
-                                                </div>
+                                                {rate.to.length > 0 && !moreToDisplay ? (
+                                                    <div className="items-center text-center">
+                                                        <button className="btn btn-outline btn-primary" onClick={()=>{setMoreToDisplay(true)}}>Voir plus</button>
+                                                    </div>
+                                                ) :null}
                                             </div>
                                             <div className="mx-4">
                                             <div className="items-center text-center">
                                                     <p class="font-bold text-[#7d2ed3] pt-5">Avis laissé</p>
                                                 </div>
                                                 <div className="items-center text-left my-5">
-                                                    <NoteCard name="NOM" firstname="PRENOM" review="Lorem Ipsum Blablablabla"/>
+                                                    {rate.from.length  ? !moreFromDisplay ?
+                                                        (
+                                                            <NoteCard name={rate.from[0].ratedUser.name} firstname={rate.from[0].ratedUser.firstName} review={rate.from[0].comment}/>
+                                                        ):null
+                                                     :(
+                                                        <div className="items-center text-center">
+                                                            <p className="font-bold text-[#7d2ed3] pt-5">Aucun avis laissé</p>
+                                                        </div>
+                                                    )}
+                                                    {moreFromDisplay ? rate.from.map((element)=>
+                                                        (
+                                                            <NoteCard name={element.ratedUser.name} firstname={element.ratedUser.firstName} review={element.comment}/>
+                                                        )
+                                                    ) :null}
                                                 </div>
-                                                <div className="items-center text-center">
-                                                    <button className="btn btn-outline btn-primary">Voir plus</button>
-                                                </div>
+                                                {rate.from.length > 0 && !moreFromDisplay ? (
+                                                    <div className="items-center text-center">
+                                                        <button className="btn btn-outline btn-primary" onClick={()=>{setMoreFromDisplay(true)}}>Voir plus</button>
+                                                    </div>
+                                                ) :null}
                                             </div>
                                         </div>
                                     </div>
@@ -99,7 +154,7 @@ function MyProfile() {
                             </div>
 
                         </div>
-                    </div>
+                        )}</div>
                 </div>
             </div>
             <Footer />

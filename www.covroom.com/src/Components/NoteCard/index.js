@@ -4,9 +4,9 @@ function NoteCard(props) {
 
     return (
         <>
-        <div class="card w-full bg-neutral shadow-xl cursor-pointer">
+        <div class="card w-full bg-neutral shadow-xl cursor-pointer mb-5">
             <div class="items-left text-left pb-5">
-                <UserPicture name={props.name} firstname={props.firstname}/>
+                <UserPicture name={props.name} firstname={props.firstname} displayRate={false}/>
             </div>
             <div class="card-body items-center text-center">
             {props.isDetail ? (<p className="breakwords px-5">{props.review}</p>) : (<p className="truncate">{props.review}</p>) }
