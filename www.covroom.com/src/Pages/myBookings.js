@@ -28,7 +28,6 @@ function MyBookings() {
         getBooking();
     },[])
 
-
     return(
         <>
             <div id="container" className="md:min-h-screen">
@@ -58,7 +57,10 @@ function MyBookings() {
                                                     </label>
                                                 </div>
                                             </div>
-                                            <CalendarButton startAt={booking.startAt} endAt={booking.endAt}/>
+                                            <div>
+                                                <CalendarButton startAt={booking.startAt} endAt={booking.endAt}/>
+                                                <a href={`tel:${booking.user.phoneNumber}`} className="btn btn-primary mt-4">Contacter</a>
+                                            </div>
                                         </div>
                                     </div>
                                 )

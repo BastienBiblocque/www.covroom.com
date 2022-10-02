@@ -57,9 +57,7 @@ function BookingConfirmation() {
                                         <div className="grid grid-cols-3 gap-4">
                                             <CalendarButton startAt={booking.startAt} endAt={booking.endAt}/>
 
-                                            {/*<button className="btn btn-white">*/}
-                                            {/*    Contacter*/}
-                                            {/*</button>*/}
+                                            <a href={`tel:${booking.user.phoneNumber}`} className="btn btn-primary mt-4">Contacter</a>
                                             <button className="btn btn-primary" onClick={()=>{navigate('/myBookings')}}>
                                                 Voir mes réservations
                                             </button>

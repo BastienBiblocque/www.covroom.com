@@ -53,7 +53,7 @@ function MyTravels() {
                                             <div className="items-left text-left py-5">
                                                 <ul>
                                                     {travel.seat.map((seat)=>
-                                                        seat.firstname ?(<li className="text-primary hover:cursor-pointer" onClick={()=>{navigate(`/users/${seat.idUser}`)}}>{seat.name} - {seat.firstname}</li>) :null
+                                                        seat.firstname ?(<li className="text-primary hover:cursor-pointer flex"><div onClick={()=>{navigate(`/users/${seat.idUser}`)}}>{seat.name} - {seat.firstname}</div><a href={`tel:${seat.phoneNumber}`}> {seat.phoneNumber}</a></li>) :null
                                                     )}
                                                 </ul>
                                             </div>
