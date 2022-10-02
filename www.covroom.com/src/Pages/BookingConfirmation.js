@@ -57,10 +57,10 @@ function BookingConfirmation() {
                                             <button className="btn btn-white">
                                                 Ajouter au calendrier
                                             </button>
-                                            <button className="btn btn-white">
-                                                Contacter
-                                            </button>
-                                            <button className="btn btn-primary" onClick={()=>{navigate('/booking')}}>
+                                            {/*<button className="btn btn-white">*/}
+                                            {/*    Contacter*/}
+                                            {/*</button>*/}
+                                            <button className="btn btn-primary" onClick={()=>{navigate('/myBookings')}}>
                                                 Voir mes réservations
                                             </button>
                                         </div>

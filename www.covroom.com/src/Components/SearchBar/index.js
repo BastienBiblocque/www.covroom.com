@@ -25,7 +25,6 @@ function SearchBar() {
                 },
             });
             start = [resStartCity.data.features[0].geometry.coordinates[0], resStartCity.data.features[0].geometry.coordinates[1]];
-            console.log(start);
         }
 
         if (endCity) {
@@ -39,7 +38,6 @@ function SearchBar() {
                 },
             });
             end = [resEndCity.data.features[0].geometry.coordinates[0], resEndCity.data.features[0].geometry.coordinates[1]];
-            console.log(end)
         }
 
         return({
