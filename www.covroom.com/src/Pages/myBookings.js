@@ -6,6 +6,8 @@ import UserPicture from "../Components/UserCard/UserPicture/userPicture";
 import React, {useEffect, useState} from "react";
 import axios from 'axios';
 
+import CalendarButton from "../Components/CalendarButton";
+
 function MyBookings() {
 
     const [isLoading, setIsLoading] = useState(false);
@@ -26,7 +28,6 @@ function MyBookings() {
         getBooking();
     },[])
 
-    console.log(bookings);
 
     return(
         <>
@@ -57,6 +58,7 @@ function MyBookings() {
                                                     </label>
                                                 </div>
                                             </div>
+                                            <CalendarButton startAt={booking.startAt} endAt={booking.endAt}/>
                                         </div>
                                     </div>
                                 )

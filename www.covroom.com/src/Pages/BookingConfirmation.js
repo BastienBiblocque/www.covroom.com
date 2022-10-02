@@ -9,6 +9,7 @@ import UserPicture from "../Components/UserCard/UserPicture/userPicture";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useParams} from "react-router";
+import CalendarButton from "../Components/CalendarButton";
 
 function BookingConfirmation() {
     let navigate = useNavigate();
@@ -54,9 +55,8 @@ function BookingConfirmation() {
                                             <div className="font-bold mr-5 mt-5">{booking.car.model} - {booking.car.color}</div>
                                         </div>
                                         <div className="grid grid-cols-3 gap-4">
-                                            <button className="btn btn-white">
-                                                Ajouter au calendrier
-                                            </button>
+                                            <CalendarButton startAt={booking.startAt} endAt={booking.endAt}/>
+
                                             {/*<button className="btn btn-white">*/}
                                             {/*    Contacter*/}
                                             {/*</button>*/}

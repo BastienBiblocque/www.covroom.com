@@ -7,6 +7,7 @@ import UserPicture from "../Components/UserCard/UserPicture/userPicture";
 import React, {useEffect, useState} from "react";
 import axios from 'axios';
 import {useNavigate} from "react-router-dom";
+import CalendarButton from "../Components/CalendarButton";
 
 function MyTravels() {
     let navigate = useNavigate();
@@ -61,6 +62,7 @@ function MyTravels() {
                                                     <button className="btn btn-primary" onClick={() => {navigate()}}>Noter</button>
                                                 </div>
                                             ) :null}
+                                            <CalendarButton startAt={travel.startAt} endAt={travel.endAt}/>
                                         </div>
                                     </div>
                                 )
