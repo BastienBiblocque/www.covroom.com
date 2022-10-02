@@ -33,10 +33,10 @@ function CreateTravel() {
     let navigate = useNavigate();
 
     useEffect(()=>{
-        // const userId = localStorage.getItem('userId');
-        // if (!userId){
-        //     navigate('/login');
-        // }
+        const userId = localStorage.getItem('userId');
+        if (!userId){
+            navigate('/login');
+        }
     },[])
 
     const createTravel = () => {
