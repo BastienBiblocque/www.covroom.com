@@ -46,7 +46,7 @@ function MyBookings() {
                                                 <div className="font-bold mr-5 mt-5">{booking.car.model} - {booking.car.color}</div>
                                             </div>
                                             <div className="items-left text-left py-5">
-                                                <UserPicture name={booking.user.name} firstname={booking.user.firstname}/>
+                                                <UserPicture displayRate={false} name={booking.user.name} firstname={booking.user.firstname}/>
                                             </div>
                                             <div className="grid md:grid-cols-2 md:gap-4">
                                                 <div>

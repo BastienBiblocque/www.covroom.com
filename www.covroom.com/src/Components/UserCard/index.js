@@ -13,7 +13,7 @@ function CardTravel(props) {
                 <TravelInformations startAt={props.travel.startAt} endAt={props.travel.endAt} startCity={props.travel.start_city} endCity={props.travel.end_city}/>
             </div>
             <div class="items-left text-left pb-5">
-                <UserPicture name={props.travel.user.name} firstname={props.travel.user.firstname}/>
+                <UserPicture name={props.travel.user.name} firstname={props.travel.user.firstname} displayRate={false}/>
             </div>
         </div>
         </>
