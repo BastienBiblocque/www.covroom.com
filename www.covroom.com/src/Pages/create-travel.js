@@ -63,7 +63,7 @@ function CreateTravel() {
         } else if (type === 'where') {
             return (<AddTravelIndex setType={setType} setDepartCity={setDepartCity} setDepartLat={setDepartLat} setDepartLong={setDepartLong} setArriveCity={setArriveCity} setArriveLat={setArriveLat} setArriveLong={setArriveLong}/>)
         } else if (type === 'when') {
-            return(<AddTravelWhere setType={setType} departCity={departCity} arriveCity={arriveCity} setStartDay={setStartDay} setEndDay={setEndDay} />)
+            return(<AddTravelWhere setType={setType} departCity={departCity} arriveCity={arriveCity} departLat={departLat} departLong={departLong} arriveLat={arriveLat} setArriveLong={arriveLong} setStartDay={setStartDay} setEndDay={setEndDay} />)
         } else if (type === 'car') {
             return(<AddTravelCar setType={setType} departCity={departCity} arriveCity={arriveCity} startDay={startDay} endDay={endDay} setSelectedCar={setSelectedCar} setNumberOfSeat={setNumberOfSeat} />)
         } else if (type === 'travelPreferences') {

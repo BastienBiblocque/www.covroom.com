@@ -5,22 +5,47 @@ import SearchBar from "../../Components/SearchBar";
 import CardTravel from "../../Components/UserCard"
 import axios from "axios";
 import {useState, useEffect} from "react";
+import {useSearchParams} from "react-router-dom";
 
 
 function SearchTravel() {
 
     const [travels,setTravels] =useState(null);
 
+    const [searchParams] = useSearchParams();
+
     const getData = () =>{
-        axios.get(`http://127.0.0.1:8000/travel/search`)
+        const dataToSend = {
+            people: searchParams.get("people") || 0,
+            date: searchParams.get("date") || 0,
+            startLong: 'null',
+            startLat: 'null',
+            endLong: 'null',
+            endLat: 'null',
+        };
+        if (searchParams.get("start")) {
+            const startSplit = searchParams.get("start").split([',']);
+            dataToSend.startLong = startSplit[1] || 'null';
+            dataToSend.startLat = startSplit[0] || 'null';
+        }
+        if (searchParams.get("end")) {
+            const endSplit = searchParams.get("end").split([',']);
+            dataToSend.endLong = endSplit[1] || 'null';
+            dataToSend.endLat = endSplit[0] || 'null';
+        }
+
+
+        axios.post(`http://127.0.0.1:8000/travel/search`,dataToSend)
             .then(res => {
                 setTravels(res.data);
             })
     }
 
     useEffect(()=>{
-        getData();
-    },[])
+        if (searchParams) {
+            getData();
+        }
+    },[searchParams])
     return (
         <>
             <Header />

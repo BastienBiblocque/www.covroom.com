@@ -38,7 +38,6 @@ function Travel() {
         axios.get(`http://127.0.0.1:8000/travel/retrieve/${id}`)
             .then(res => {
                 setTravel(res.data);
-                console.log(res.data)
                 const tmp = [];
                 for (let i=0; i<res.data.seat.available; i++){
                     tmp.push(i+1);
@@ -113,7 +112,7 @@ function Travel() {
                                         <CarInformation car={travel.car} seat={travel.seat} />
                                     </div>
                                     <div className="items-left text-left py-5">
-                                        <UserPicture name={travel.user.name} firstname={travel.user.firstname}/>
+                                        <UserPicture id={travel.user.id} name={travel.user.name} firstname={travel.user.firstname} displayRate={false}/>
                                     </div>
                                     <div className="grid md:grid-cols-2 md:gap-4">
                                         <div>

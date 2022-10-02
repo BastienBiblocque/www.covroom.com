@@ -13,9 +13,11 @@ function LoginForm() {
                 email: email,
                 password: password,
             }).then((res) => {
-                localStorage.setItem('userId', res.data.id);
-                localStorage.setItem('userName', res.data.name + ' - ' + res.data.firstName);
-                navigate('/');
+                if (res.data.code !== "0") {
+                    localStorage.setItem('userId', res.data.id);
+                    localStorage.setItem('userName', res.data.name + ' - ' + res.data.firstName);
+                    navigate('/');
+                }
             });
         }
     }

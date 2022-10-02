@@ -71,7 +71,7 @@ function Header() {
                                 <li><Link to="/myTravels">Mes trajets</Link></li>
                                 <li><Link to="/myBookings">Mes reservations</Link></li>
                                 <li><Link to="/car">Mes voitures</Link></li>
-                                <li><Link to="/search">Mes messages</Link></li>
+                                {/*<li><Link to="/search">Mes messages</Link></li>*/}
                                 {/*<li><Link to="/search">Mes favoris</Link></li>*/}
                                 <li><Link to="/logout">Déconnexion</Link></li>
                             </> :

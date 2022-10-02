@@ -6,6 +6,8 @@ import UserPicture from "../Components/UserCard/UserPicture/userPicture";
 import React, {useEffect, useState} from "react";
 import axios from 'axios';
 
+import CalendarButton from "../Components/CalendarButton";
+
 function MyBookings() {
 
     const [isLoading, setIsLoading] = useState(false);
@@ -32,8 +34,7 @@ function MyBookings() {
                 <Header />
                 <div className="flex">
                     <div className="mx-auto">
-                        <div className="grid grid-cols-2 gap-8">
-
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             {bookings ? bookings.map((booking)=>
                                 (
                                     <div className="card md:w-96 bg-base-100 shadow-xl my-8 mx-4 md:mx-0">
@@ -47,7 +48,7 @@ function MyBookings() {
                                                 <div className="font-bold mr-5 mt-5">{booking.car.model} - {booking.car.color}</div>
                                             </div>
                                             <div className="items-left text-left py-5">
-                                                <UserPicture name={booking.user.name} firstname={booking.user.firstname}/>
+                                                <UserPicture id={booking.user.id} displayRate={false} name={booking.user.name} firstname={booking.user.firstname}/>
                                             </div>
                                             <div className="grid md:grid-cols-2 md:gap-4">
                                                 <div>
@@ -56,7 +57,10 @@ function MyBookings() {
                                                     </label>
                                                 </div>
                                             </div>
-
+                                            <div>
+                                                <CalendarButton startAt={booking.startAt} endAt={booking.endAt}/>
+                                                <a href={`tel:${booking.user.phoneNumber}`} className="btn btn-primary mt-4">Contacter</a>
+                                            </div>
                                         </div>
                                     </div>
                                 )

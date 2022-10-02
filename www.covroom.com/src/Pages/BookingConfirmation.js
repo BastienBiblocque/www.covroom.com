@@ -9,6 +9,7 @@ import UserPicture from "../Components/UserCard/UserPicture/userPicture";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useParams} from "react-router";
+import CalendarButton from "../Components/CalendarButton";
 
 function BookingConfirmation() {
     let navigate = useNavigate();
@@ -47,20 +48,17 @@ function BookingConfirmation() {
                                         <div className="items-left text-left pt-5">
                                             <TravelInformations startAt={booking.startAt} endAt={booking.endAt} startCity={booking.start_city} endCity={booking.end_city}/>
                                             <div className="items-left text-left pb-5 mt-4">
-                                                <UserPicture name={booking.user.name} firstname={booking.user.firstname}/>
+                                                <UserPicture name={booking.user.name} firstname={booking.user.firstname} displayRate={false}/>
                                             </div>
                                         </div>
                                         <div className="items-left text-left pb-5">
                                             <div className="font-bold mr-5 mt-5">{booking.car.model} - {booking.car.color}</div>
                                         </div>
                                         <div className="grid grid-cols-3 gap-4">
-                                            <button className="btn btn-white">
-                                                Ajouter au calendrier
-                                            </button>
-                                            <button className="btn btn-white">
-                                                Contacter
-                                            </button>
-                                            <button className="btn btn-primary" onClick={()=>{navigate('/booking')}}>
+                                            <CalendarButton startAt={booking.startAt} endAt={booking.endAt}/>
+
+                                            <a href={`tel:${booking.user.phoneNumber}`} className="btn btn-primary mt-4">Contacter</a>
+                                            <button className="btn btn-primary" onClick={()=>{navigate('/myBookings')}}>
                                                 Voir mes réservations
                                             </button>
                                         </div>

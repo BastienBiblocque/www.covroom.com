@@ -29,7 +29,7 @@ function AddTravelFinish(props) {
                                 <p>Préference de trajet : {props.travelPreferences}</p>
                             </div>
                             <div className="card-actions justify-end my-4">
-                                <button className="btn btn-primary" onClick={()=>{navigate("/profil/travel");}}>
+                                <button className="btn btn-primary" onClick={()=>{navigate("/myTravels");}}>
                                     Voir mes trajets
                                 </button>
                             </div>

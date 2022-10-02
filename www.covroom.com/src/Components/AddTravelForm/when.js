@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
+import mapboxgl from 'mapbox-gl';
 
 function AddTravelWhere(props) {
 
@@ -18,9 +19,48 @@ function AddTravelWhere(props) {
         props.setType('car');
     }
 
+    //MAP
+
+    const mapContainer = useRef(null);
+    const map = useRef(null);
+    const [zoom, setZoom] = useState(4);
+
+    useEffect(() => {
+            if (map.current) return; // initialize map only once
+            map.current = new mapboxgl.Map({
+                container: mapContainer.current,
+                style: 'mapbox://styles/mapbox/outdoors-v11',
+                center: [2.2, 48.5],
+                zoom: zoom
+            });
+    },[]);
+
+    const startMarker = new mapboxgl.Marker();
+
+
+    function addMarker(find) {
+        startMarker.remove();
+        startMarker.setLngLat(find.center)
+            .addTo(map.current);
+    }
+
+    // addMarker({
+    //     lon: props.departLat,
+    //     lat: props.departLong
+    // });
+    // addMarker({
+    //     lng: props.arriveLat,
+    //     lat: props.arriveLong
+    // });
+
+    //END MAP
+
     return (
         <div className="w-full w-auto">
-            <div className="grid grid-cols-2 gap-10">
+            <div className="grid grid-cols-3 gap-10">
+                <div>
+                    <div ref={mapContainer} className="map-container h-[400px]" />
+                </div>
                 <div>
                     <div className="card md:w-96 bg-base-100 shadow-xl my-8 mx-4 md:mx-0">
                         <div className="card-body text-center">
