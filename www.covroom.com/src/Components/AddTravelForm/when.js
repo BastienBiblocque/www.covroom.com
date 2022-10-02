@@ -44,11 +44,6 @@ function AddTravelWhere(props) {
             .addTo(map.current);
     }
 
-    console.log(props.departLat);
-    console.log(props.departLong);
-    console.log(props.arriveLat);
-    console.log(props.arriveLong);
-
     // addMarker({
     //     lon: props.departLat,
     //     lat: props.departLong

@@ -7,6 +7,7 @@ import UserPicture from "../Components/UserCard/UserPicture/userPicture";
 import React, {useEffect, useState} from "react";
 import axios from 'axios';
 import {useNavigate} from "react-router-dom";
+import CalendarButton from "../Components/CalendarButton";
 
 function MyTravels() {
     let navigate = useNavigate();
@@ -52,7 +53,7 @@ function MyTravels() {
                                             <div className="items-left text-left py-5">
                                                 <ul>
                                                     {travel.seat.map((seat)=>
-                                                        seat.firstname ?(<li className="text-primary hover:cursor-pointer"><a>{seat.name} - {seat.firstname}</a></li>) :null
+                                                        seat.firstname ?(<li className="text-primary hover:cursor-pointer flex"><div onClick={()=>{navigate(`/users/${seat.idUser}`)}}>{seat.name} - {seat.firstname}{' - '}</div><a href={`tel:${seat.phoneNumber}`}> {seat.phoneNumber}</a></li>) :null
                                                     )}
                                                 </ul>
                                             </div>
@@ -61,6 +62,7 @@ function MyTravels() {
                                                     <button className="btn btn-primary" onClick={() => {navigate()}}>Noter</button>
                                                 </div>
                                             ) :null}
+                                            <CalendarButton startAt={travel.startAt} endAt={travel.endAt}/>
                                         </div>
                                     </div>
                                 )

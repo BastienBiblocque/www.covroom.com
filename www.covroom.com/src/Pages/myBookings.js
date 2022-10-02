@@ -6,6 +6,8 @@ import UserPicture from "../Components/UserCard/UserPicture/userPicture";
 import React, {useEffect, useState} from "react";
 import axios from 'axios';
 
+import CalendarButton from "../Components/CalendarButton";
+
 function MyBookings() {
 
     const [isLoading, setIsLoading] = useState(false);
@@ -46,7 +48,7 @@ function MyBookings() {
                                                 <div className="font-bold mr-5 mt-5">{booking.car.model} - {booking.car.color}</div>
                                             </div>
                                             <div className="items-left text-left py-5">
-                                                <UserPicture displayRate={false} name={booking.user.name} firstname={booking.user.firstname}/>
+                                                <UserPicture id={booking.user.id} displayRate={false} name={booking.user.name} firstname={booking.user.firstname}/>
                                             </div>
                                             <div className="grid md:grid-cols-2 md:gap-4">
                                                 <div>
@@ -54,6 +56,10 @@ function MyBookings() {
                                                         <span className="label-text">{booking.seat} Place réservés</span>
                                                     </label>
                                                 </div>
+                                            </div>
+                                            <div>
+                                                <CalendarButton startAt={booking.startAt} endAt={booking.endAt}/>
+                                                <a href={`tel:${booking.user.phoneNumber}`} className="btn btn-primary mt-4">Contacter</a>
                                             </div>
                                         </div>
                                     </div>

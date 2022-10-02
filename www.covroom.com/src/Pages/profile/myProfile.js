@@ -11,8 +11,6 @@ import {ThreeDots} from "react-loader-spinner";
 
 function MyProfile() {
 
-    const isUser = true;
-
     let navigate = useNavigate();
 
     const [profile, setProfile] = useState(null);
@@ -43,15 +41,13 @@ function MyProfile() {
         }
     },[profile && rate])
 
-    console.log(rate);
-
     useEffect(()=>{
         getData();
     },[])
 
     return (
         <>
-            <div id="container" className="md:h-screen">
+            <div id="container" className="md:min-h-screen">
                 <Header />
                 <div className="flex">
                     <div className="mx-auto">
@@ -74,6 +70,9 @@ function MyProfile() {
                                         <div className="items-center text-center py-5">
                                             <p class="font-bold">{profile.name} {profile.firstName}</p>
                                         </div>
+                                        <div className="items-center text-center ">
+                                            <p>{profile.description}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -86,7 +85,7 @@ function MyProfile() {
                                                 <p class="font-bold text-[#7d2ed3] pt-5">{profile.name} {profile.firstName}</p>
                                             </div>
                                             <div className="items-right text-right py-5">
-                                                {isUser ? (<button className="btn btn-primary" onClick={()=>{navigate('/myProfile/update')}}>Modifier</button>) : null }
+                                                <button className="btn btn-primary" onClick={()=>{navigate('/myProfile/update')}}>Modifier</button>
                                             </div>
                                             <div className="pt-5 mb-4">
                                                 <span class="flex gap-1 font-bold"><AiFillStar/>{rate.average} - {rate.quantity} avis</span>
