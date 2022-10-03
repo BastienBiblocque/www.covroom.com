@@ -56,9 +56,11 @@ function SearchTravel() {
                     {/*    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-6" fill="none" viewBox="0 3 10 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>*/}
                     {/*</button>*/}
                     <SearchBar />
-                    {travels ? travels.map((travel)=>
-                        (<CardTravel travel={travel}/>)
-                    ) :null}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-16">
+                        {travels ? travels.map((travel)=>
+                            (<CardTravel travel={travel}/>)
+                        ) :null}
+                    </div>
                 </div>
             <Footer/>
         </>
