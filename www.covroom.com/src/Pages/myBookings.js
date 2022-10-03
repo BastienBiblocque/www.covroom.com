@@ -7,8 +7,11 @@ import React, {useEffect, useState} from "react";
 import axios from 'axios';
 
 import CalendarButton from "../Components/CalendarButton";
+import {useNavigate} from "react-router-dom";
 
 function MyBookings() {
+
+    let navigate = useNavigate();
 
     const [isLoading, setIsLoading] = useState(false);
 
@@ -19,7 +22,7 @@ function MyBookings() {
 
         axios.get(`http://127.0.0.1:8000/booking/retrieve/user/${userId}`)
             .then(res => {
-                setBookings(res.data);
+                setBookings(res.data.reverse());
                 setIsLoading(false);
             })
     }
@@ -37,7 +40,7 @@ function MyBookings() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             {bookings ? bookings.map((booking)=>
                                 (
-                                    <div className="card md:w-96 bg-base-100 shadow-xl my-8 mx-4 md:mx-0">
+                                    <div className={`card md:w-96 bg-base-100 shadow-xl my-8 mx-4 md:mx-0 ${booking.isFuture ? 'border border-primary':null}`}>
                                         <div className="card-body text-center">
                                             <p className="text-xl text-primary">{booking.start_city} - {booking.end_city}</p>
                                             <div className="border-b border-hr"/>
@@ -57,8 +60,12 @@ function MyBookings() {
                                                     </label>
                                                 </div>
                                             </div>
-                                            <div>
-                                                <CalendarButton startAt={booking.startAt} endAt={booking.endAt}/>
+                                            <div className="grid grid-cols-1">
+                                                {!booking.isFuture ? (
+                                                    <button onClick={()=>{navigate(`/myTravels/${booking.id}/user/${booking.user.id}/travelNotation`)}} className="btn btn-white mt-4">Noter</button>
+                                                ) :(
+                                                    <CalendarButton startAt={booking.startAt} endAt={booking.endAt}/>
+                                                )}
                                                 <a href={`tel:${booking.user.phoneNumber}`} className="btn btn-primary mt-4">Contacter</a>
                                             </div>
                                         </div>

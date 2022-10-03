@@ -25,13 +25,13 @@ import Booking from "./Pages/Booking";
 import Logout from "./Pages/logout";
 import MyBookings from "./Pages/myBookings";
 import 'mapbox-gl/dist/mapbox-gl.css';
-import MyProfile from "./Pages/myProfile";
 import TravelNotation from "./Pages/travelNotation/index";
 import MyProfile from "./Pages/profile/myProfile";
 import MyRatings from "./Pages/profile/myRatings";
 import MyReviews from "./Pages/profile/myReviews";
 import MyProfileUpdate from "./Pages/profile/myProfileUpdate";
 import Profil from "./Pages/profil";
+import MyTravels from "./Pages/myTravels";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -54,7 +54,7 @@ root.render(
             <Route path="/logout" element={<Logout />} />
             <Route path="/myBookings" element={<MyBookings />} />
             <Route path="/myTravels" element={<MyTravels />} />
-            <Route path="/myTravels/:id/user/:id/travelNotation" element={<TravelNotation />} />
+            <Route path="/myTravels/:idTravel/user/:idUser/travelNotation" element={<TravelNotation />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/myProfile" element={<MyProfile />} />
             <Route path="/myRatings" element={<MyRatings />} />

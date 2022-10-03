@@ -1,14 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
+import Loading from "./loading";
 
 function AddTravelPrefrences(props) {
 
     const [travelPreferences, setTravelPrefrences] = useState(null);
+    const [selectedTP, setSelectedTP] = useState([]);
+
+    const [isLoading, setIsLoading] = useState(true)
 
     const getCar = () =>{
         axios.get(`http://127.0.0.1:8000/travel_preference`)
             .then(res => {
                 setTravelPrefrences(res.data);
+                setIsLoading(false);
             })
     }
 
@@ -24,6 +29,7 @@ function AddTravelPrefrences(props) {
 
     return (
         <div className="w-full w-auto">
+            {isLoading ? (<Loading/>) : (
             <div className="grid grid-cols-2 gap-10">
                 <div>
                     <div className="card md:w-96 bg-base-100 shadow-xl my-8 mx-4 md:mx-0">
@@ -48,12 +54,19 @@ function AddTravelPrefrences(props) {
                             <div>
                                 <div className="text-primary text-xl">Fumeur</div>
                                 <div className="grid grid-cols-2 gap-8 pt-4">
-                                    <div className="p-4 border border-primary rounded-xl">
-                                        Fumeur
-                                    </div>
-                                    <div className="p-4 border border-grey rounded-xl">
-                                        Non fumeur
-                                    </div>
+                                    {travelPreferences.map((travelPreference)=>(
+
+                                        <div className={`p-4 border rounded-xl cursor-pointer ${selectedTP.includes(travelPreference.id) ? "border-primary" :"border-grey" }`} onClick={()=>{
+                                            if (selectedTP.includes(travelPreference.id)) {
+                                                selectedTP.splice(selectedTP.indexOf(travelPreference.id), 1);
+                                            } else {
+                                                selectedTP.push(travelPreference.id);
+                                            }
+                                            setSelectedTP(selectedTP);
+                                        }}>
+                                            {travelPreference.name}
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                             <div className="card-actions justify-end my-4">
@@ -63,7 +76,7 @@ function AddTravelPrefrences(props) {
                     </div>
                 </div>
             </div>
-        </div>
+            )}</div>
     );
 }
 

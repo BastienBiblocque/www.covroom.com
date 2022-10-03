@@ -30,6 +30,8 @@ function MyTravels() {
         getTravels();
     },[])
 
+    console.log(travels);
+
     return(
         <>
             <div id="container" className="md:min-h-screen">
@@ -53,15 +55,15 @@ function MyTravels() {
                                             <div className="items-left text-left py-5">
                                                 <ul>
                                                     {travel.seat.map((seat)=>
-                                                        seat.firstname ?(<li className="text-primary hover:cursor-pointer flex"><div onClick={()=>{navigate(`/users/${seat.idUser}`)}}>{seat.name} - {seat.firstname}{' - '}</div><a href={`tel:${seat.phoneNumber}`}> {seat.phoneNumber}</a></li>) :null
+                                                        seat.firstname ?(<li className="text-primary hover:cursor-pointer flex"><div onClick={()=>{navigate(`/users/${seat.idUser}`)}}>{seat.name} - {seat.firstname}{' - '}</div><a href={`tel:${seat.phoneNumber}`}> {seat.phoneNumber}</a>{!travel.isFuture ? (<div onClick={()=>{navigate(`/myTravels/${travel.id}/user/${seat.idUser}/travelNotation`)}}> Noter</div>) :null}</li>) :null
                                                     )}
                                                 </ul>
                                             </div>
-                                            {!travel.isFuture && travel.seats.available > 0 ? (
-                                                <div className="items-left text-left py-5">
-                                                    <button className="btn btn-primary" onClick={() => {navigate()}}>Noter</button>
-                                                </div>
-                                            ) :null}
+                                            {/*{!travel.isFuture && travel.seats.available > 0 ? (*/}
+                                            {/*    <div className="items-left text-left py-5">*/}
+                                            {/*        <button className="btn btn-primary" onClick={() => {navigate()}}>Noter</button>*/}
+                                            {/*    </div>*/}
+                                            {/*) :null}*/}
                                             <CalendarButton startAt={travel.startAt} endAt={travel.endAt}/>
                                         </div>
                                     </div>
