@@ -5,6 +5,7 @@ import {Link, useNavigate} from 'react-router-dom';
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import Loading from "../../Components/AddTravelForm/loading";
+import {NotificationContainer, NotificationManager} from "react-notifications";
 
 function TravelNotation() {
     let navigate = useNavigate();
@@ -61,13 +62,19 @@ function TravelNotation() {
             travelId:splitUrl[4],
         })
         .then(res => {
-            navigate('/myTravels');
+            console.log(res.data.code)
+            if (res.data.code === '0') {
+                NotificationManager.error('Vous avez déja envoyer un avis pour ce trajet', '', 3000);
+            } else {
+                navigate('/myTravels');
+            }
         })
     }
 
     return (
         <>
             <div id="container" className="md:h-screen">
+                <NotificationContainer/>
                 <Header />
                 <div className="pt-10 mx-auto w-96 m-10">
                 {isLoading ? (<Loading/>) :(
