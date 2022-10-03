@@ -51,25 +51,27 @@ function AddTravelPrefrences(props) {
                 <div>
                     <div className="card md:w-96 bg-base-100 shadow-xl my-8 mx-4 md:mx-0">
                         <div className="card-body">
-                            <div>
-                                <div className="text-primary text-xl">Fumeur</div>
-                                <div className="grid grid-cols-2 gap-8 pt-4">
-                                    {travelPreferences.map((travelPreference)=>(
+                            <p className="text-xl text-primary mx-auto">Récapitulatif</p>
 
-                                        <div className={`p-4 border rounded-xl cursor-pointer ${selectedTP.includes(travelPreference.id) ? "border-primary" :"border-grey" }`} onClick={()=>{
-                                            if (selectedTP.includes(travelPreference.id)) {
-                                                selectedTP.splice(selectedTP.indexOf(travelPreference.id), 1);
-                                            } else {
-                                                selectedTP.push(travelPreference.id);
-                                            }
-                                            setSelectedTP(selectedTP);
-                                        }}>
-                                            {travelPreference.name}
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                            <div className="card-actions justify-end my-4">
+                            {/*<div>*/}
+                            {/*    <div className="text-primary text-xl">Fumeur</div>*/}
+                            {/*    <div className="grid grid-cols-2 gap-8 pt-4">*/}
+                            {/*        {travelPreferences.map((travelPreference)=>(*/}
+
+                            {/*            <div className={`p-4 border rounded-xl cursor-pointer ${selectedTP.includes(travelPreference.id) ? "border-primary" :"border-grey" }`} onClick={()=>{*/}
+                            {/*                if (selectedTP.includes(travelPreference.id)) {*/}
+                            {/*                    selectedTP.splice(selectedTP.indexOf(travelPreference.id), 1);*/}
+                            {/*                } else {*/}
+                            {/*                    selectedTP.push(travelPreference.id);*/}
+                            {/*                }*/}
+                            {/*                setSelectedTP(selectedTP);*/}
+                            {/*            }}>*/}
+                            {/*                {travelPreference.name}*/}
+                            {/*            </div>*/}
+                            {/*        ))}*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
+                            <div className="card-actions mx-auto my-4">
                                 <button className="btn btn-primary" onClick={() => {goNext()}}>Créer mon trajet</button>
                             </div>
                         </div>

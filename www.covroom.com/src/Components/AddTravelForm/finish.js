@@ -26,7 +26,7 @@ function AddTravelFinish(props) {
                                 <p>Date de départ : {props.endDay.toLocaleDateString()}</p>
                                 <p>Voiture selectionnée : {props.selectedCar}</p>
                                 <p>Nombre de place : {props.numberOfSeat}</p>
-                                <p>Préference de trajet : {props.travelPreferences}</p>
+                                {/*<p>Préference de trajet : {props.travelPreferences}</p>*/}
                             </div>
                             <div className="card-actions justify-end my-4">
                                 <button className="btn btn-primary" onClick={()=>{navigate("/myTravels");}}>
