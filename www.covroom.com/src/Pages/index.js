@@ -1,5 +1,5 @@
 import '../App.css';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import Footer from '../Components/Footer';
 import Header from "../Components/Header";
 import { BsMusicNote } from 'react-icons/bs';
@@ -13,6 +13,8 @@ import {useEffect, useState} from "react";
 
 function Index() {
   const [travels, setTravels] = useState(null);
+
+  let navigate = useNavigate();
 
   const getData = () =>{
     axios.get(`http://127.0.0.1:8000/travel/last/3`)
@@ -30,9 +32,9 @@ function Index() {
     <>
       <Header />
       <div class="head">
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
           <img src={ElectricCarTop} className="pl-20" alt="Voiture rouge pour le head"></img>
-          <div className="my-auto">
+          <div className="my-auto hidden xl:flex">
             <div className="text-6xl text-primary flex">
               Vroom <BsMusicNote/> Vroom <BsMusicNote/>
             </div>
@@ -65,11 +67,18 @@ function Index() {
         </div>
         <div class="networkDriver flex m-20">
           <div class="card w-full bg-neutral text-neutral-content shadow-xl flex flex-row p-5">
-            <div class="join flex items-center flex-col justify-center ml-40">
-              <h3 class="text-primary font-bold text-4xl mt-20 mb-16 text-center">Rejoignez le réseau de conducteurs</h3>
-              <Link to="signIn"><button class="btn color-primary bg-primary text-[#ffffff] hover:bg-secondary border-none w-12/12 self-center rounded-full">Je rejoins</button></Link>
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              <div className="mx-auto w-full">
+                <h3 className="text-primary font-bold text-4xl mt-20 mb-16 text-center">Rejoignez le réseau de
+                  conducteurs</h3>
+                  <div className="mx-auto w-full flex">
+                    <button
+                        className="btn mx-auto color-primary bg-primary text-[#ffffff] hover:bg-secondary border-none w-12/12 self-center rounded-full" onClick={()=>{navigate('/register')}}>Je
+                      rejoins</button>
+                  </div>
+              </div>
+              <img src={CarBot} className="w-1/2 mx-auto hidden md:flex" alt="Voiture bleu pour inscription"></img>
             </div>
-            <img src={CarBot} class="w-1/2 mx-auto hidden md:flex" alt="Voiture bleu pour inscription"></img>
           </div>
           </div>
       </div>

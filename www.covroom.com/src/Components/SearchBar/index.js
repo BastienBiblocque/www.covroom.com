@@ -1,6 +1,6 @@
 import {HiSearchCircle} from "react-icons/hi"
 import {Link, useNavigate} from "react-router-dom";
-import {useState} from "react";
+import React, {useState} from "react";
 import axios from "axios";
 
 function SearchBar() {
@@ -66,8 +66,8 @@ function SearchBar() {
     }
     return (
        <>
-        <div className="mx-auto bg-[#ffffff] w-7/12 lg:w-9/12 shadow-xl rounded-full border border-primary pl-5 pt-2 pb-2">
-        <div className="flex flex-start justify-between">
+        <div className="hidden xl:flex mx-auto bg-[#ffffff] w-7/12 lg:w-9/12 shadow-xl rounded-full border border-primary pl-5 pt-2 pb-2">
+            <div className="flex flex-start justify-between">
             <div className="beginIn flex flex-col">
                 <p className="font-semibold">Lieu de départ</p>
                 <input type="text" placeholder="Paris" className="font-medium focus:outline-none" onChange={(e)=>{setStartCity(e.target.value)}}/>
@@ -91,6 +91,58 @@ function SearchBar() {
             <div onClick={search} className="mr-5"><HiSearchCircle size={45} color={"#7D2ED3"}/></div>
             </div>
         </div>
+
+           <label for="my-modal-3" class="btn btn-primary modal-button flex xl:hidden w-32">Rechercher</label>
+           <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+           <div class="modal">
+               <div class="modal-box relative">
+                   <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                   <div>
+                       <label className="label">
+                           <span className="label-text">Ville de départ</span>
+                       </label>
+                       <input
+                           type="text"
+                           placeholder="Ville de départ"
+                           className="input input-bordered input-primary w-full max-w-xs"
+                           onChange={(e)=>{setStartCity(e.target.value)}}/>
+                   </div>
+                   <div>
+                       <label className="label">
+                           <span className="label-text">Ville d'arrivé</span>
+                       </label>
+                       <input
+                           type="text"
+                           placeholder="Ville d'arrivé"
+                           className="input input-bordered input-primary w-full max-w-xs"
+                           onChange={(e)=>{setEndCity(e.target.value)}}/>
+                   </div>
+                   <div>
+                       <label className="label">
+                           <span className="label-text">Date</span>
+                       </label>
+                       <input
+                           type="date"
+                           placeholder="Ville de départ"
+                           className="input input-bordered input-primary w-full max-w-xs"
+                           onChange={(e)=>{setDate(e.target.value)}}/>
+                   </div>
+                   <div>
+                       <label className="label">
+                           <span className="label-text">Nombre de personne</span>
+                       </label>
+                       <input
+                           type="number"
+                           placeholder="Nombre de personne"
+                           className="input input-bordered input-primary w-full max-w-xs"
+                           onChange={(e)=>{setPeople(e.target.value)}}/>
+                   </div>
+                   <div className="modal-action">
+                       <label htmlFor="my-modal" className="btn btn-primary" onClick={search}>Rechercher</label>
+                   </div>
+               </div>
+
+           </div>
        </>
     );
 }
