@@ -1,7 +1,6 @@
 import Footer from '../../Components/Footer';
 import Header from "../../Components/Header";
 import UserPicture from "../../Components/UserCard/UserPicture/userPicture";
-import {useState} from "react";
 import { Link } from 'react-router-dom';
 
 function TravelNotation() {
