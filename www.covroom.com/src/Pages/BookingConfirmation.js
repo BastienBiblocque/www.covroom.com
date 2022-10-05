@@ -10,6 +10,7 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useParams} from "react-router";
 import CalendarButton from "../Components/CalendarButton";
+import {ThreeDots} from "react-loader-spinner";
 
 function BookingConfirmation() {
     let navigate = useNavigate();
@@ -38,10 +39,17 @@ function BookingConfirmation() {
                 <Header />
                 <div className="w-full w-auto">
                         <div className="w-full">
-                            {isLoading ? (<div>
-                                    <Loading/>
+                            {isLoading ? (<div className="flex mx-auto">
+                                    <ThreeDots
+                                        height="150"
+                                        width="150"
+                                        color='#7D2ED3'
+                                        ariaLabel='loading'
+                                        wrapperClass="mx-auto"
+                                    />
                                 </div>) :
-                                <div className="card md:w-[800px] bg-base-100 shadow-xl my-8 mx-4 md:mx-0">
+                                <div className="flex">
+                                <div className="card mx-auto md:w-[800px] bg-base-100 shadow-xl my-8 mx-4 md:mx-0">
                                     <div className="card-body text-center">
                                         <p className="text-xl text-primary">Vous partez pour {booking.end_city} !</p>
                                         <div className="border-b border-hr"/>
@@ -63,7 +71,7 @@ function BookingConfirmation() {
                                             </button>
                                         </div>
                                     </div>
-                                </div>}
+                                </div></div>}
                         </div>
                 </div>
             </div>
