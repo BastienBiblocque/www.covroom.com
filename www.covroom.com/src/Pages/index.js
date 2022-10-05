@@ -34,7 +34,7 @@ function Index() {
       <div class="head">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
           <img src={ElectricCarTop} className="pl-20" alt="Voiture rouge pour le head"></img>
-          <div className="my-auto hidden xl:flex">
+          <div className="my-auto hidden xl:block">
             <div className="text-6xl text-primary flex">
               Vroom <BsMusicNote/> Vroom <BsMusicNote/>
             </div>
