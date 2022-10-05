@@ -48,7 +48,8 @@ function BookingConfirmation() {
                                         wrapperClass="mx-auto"
                                     />
                                 </div>) :
-                                <div className="flex">
+                                <div className="flex
+                                ">
                                 <div className="card mx-auto md:w-[800px] bg-base-100 shadow-xl my-8 mx-4 md:mx-0">
                                     <div className="card-body text-center">
                                         <p className="text-xl text-primary">Vous partez pour {booking.end_city} !</p>
@@ -65,7 +66,7 @@ function BookingConfirmation() {
                                         <div className="grid grid-cols-3 gap-4">
                                             <CalendarButton startAt={booking.startAt} endAt={booking.endAt}/>
 
-                                            <a href={`tel:${booking.user.phoneNumber}`} className="btn btn-primary mt-4">Contacter</a>
+                                            <a href={`tel:${booking.user.phoneNumber}`} className="btn btn-primary">Contacter</a>
                                             <button className="btn btn-primary" onClick={()=>{navigate('/myBookings')}}>
                                                 Voir mes réservations
                                             </button>
